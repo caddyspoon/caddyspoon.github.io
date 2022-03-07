@@ -33,7 +33,7 @@
                             "url": "\/posts\/2022\/01\/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/featured-image.jpg",
                             "width":  720 ,
                             "height":  280 
-                        }],"genre": "posts","wordcount":  405 ,
+                        }],"genre": "posts","wordcount":  404 ,
         "url": "\/posts\/2022\/01\/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/","datePublished": "2022-01-05T01:26:00+09:00","dateModified": "2022-01-05T01:26:00+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">토스트에디터 리액트 적용하기 - 1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;405 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;404 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -181,8 +181,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install --save @toast-ui/react-editor
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install --save @toast-ui/react-editor
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br>
 <p>이제 TUI 에디터를 불러와줍니다!</p>
@@ -193,13 +193,13 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Editor</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/react-editor&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Editor</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/react-editor&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br>
 <hr>
-<p><img src="MD_imgs/01.png" alt="스크린샷 2022-01-05 오전 1.05.38"  /></p>
+<img src="MD_imgs/01.png" alt="스크린샷 2022-01-05 오전 1.05.38"  />
 <p>몇 가지 옵션 값을 주어 컴포넌트로 만들었습니다. 전체 코드는 다음과 같습니다.</p>
 <br>
 <div class="highlight"><div class="chroma">
@@ -230,37 +230,35 @@
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
-</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// EditorComponent.js
-</span><span class="c1"></span>
-<span class="c1">// Properties 및 API 가이드: https://nhn.github.io/tui.editor/latest/
-</span><span class="c1"></span>
-<span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
-
-<span class="c1">// Toast-ui-Editor
-</span><span class="c1"></span><span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Editor</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/react-editor&#39;</span>
-
-<span class="kr">import</span> <span class="s2">&#34;./EditorComponent.scss&#34;</span>
-
-<span class="kd">function</span> <span class="nx">EditorComponent</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&#34;Editor__Wrapper&#34;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">Editor</span>
-        <span class="nx">initialValue</span><span class="o">=</span><span class="s2">&#34;Hello, React World!&#34;</span>	<span class="c1">// 초기 입력 문구
-</span><span class="c1"></span>        <span class="nx">previewStyle</span><span class="o">=</span><span class="s2">&#34;vertical&#34;</span>	<span class="c1">// 프리뷰 스타일 [&#39;tab&#39;, &#39;vertical&#39;]
-</span><span class="c1"></span>        <span class="nx">height</span><span class="o">=</span><span class="s2">&#34;600px&#34;</span>	<span class="c1">// 에디터 높이값
-</span><span class="c1"></span>        <span class="nx">initialEditType</span><span class="o">=</span><span class="s2">&#34;markdown&#34;</span>	<span class="c1">// 페이지 로드 시 기본 에디터 타입
-</span><span class="c1"></span>      <span class="err">/&gt;</span>
-    <span class="o">&lt;</span><span class="err">/div&gt;</span>
-  <span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">EditorComponent</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// EditorComponent.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Properties 및 API 가이드: https://nhn.github.io/tui.editor/latest/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Toast-ui-Editor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="s1">&#39;@toast-ui/editor/dist/toastui-editor.css&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Editor</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@toast-ui/react-editor&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="s2">&#34;./EditorComponent.scss&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">EditorComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&#34;Editor__Wrapper&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">Editor</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">initialValue</span><span class="o">=</span><span class="s2">&#34;Hello, React World!&#34;</span>	<span class="c1">// 초기 입력 문구
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">previewStyle</span><span class="o">=</span><span class="s2">&#34;vertical&#34;</span>	<span class="c1">// 프리뷰 스타일 [&#39;tab&#39;, &#39;vertical&#39;]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">height</span><span class="o">=</span><span class="s2">&#34;600px&#34;</span>	<span class="c1">// 에디터 높이값
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">initialEditType</span><span class="o">=</span><span class="s2">&#34;markdown&#34;</span>	<span class="c1">// 페이지 로드 시 기본 에디터 타입
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="err">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">EditorComponent</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -272,13 +270,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="c1">// EditorComponent.scss
-</span><span class="c1"></span>
-<span class="nc">.Editor__Wrapper</span> <span class="p">{</span>
-  <span class="na">width</span><span class="o">:</span> <span class="mi">720</span><span class="kt">px</span><span class="p">;</span>
-  <span class="na">margin-inline</span><span class="o">:</span> <span class="ni">auto</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="c1">// EditorComponent.scss
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nc">.Editor__Wrapper</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">width</span><span class="o">:</span> <span class="mi">720</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">margin-inline</span><span class="o">:</span> <span class="ni">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br>
 <p>전체 Properties를 비롯한 API에 대한 설명은 <a href="https://nhn.github.io/tui.editor/latest/" target="_blank" rel="noopener noreferrer">https://nhn.github.io/tui.editor/latest/</a> 페이지에서 찾아볼 수 있습니다.</p>
@@ -319,11 +317,9 @@
 
     <div class="post-nav"><a href="/posts/2021/10/%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4/" class="prev" rel="prev" title="환영합니다."><i class="fas fa-angle-left fa-fw"></i>환영합니다.</a></div>
 </div>
-<div id="comments"><div id="gitalk" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.88.1">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.93.2">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://caddyspoon.github.io" target="_blank" rel="noopener noreferrer">Caddyspoon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
@@ -333,5 +329,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":25},"comment":{"gitalk":{"admin":[""],"clientID":"","clientSecret":"","id":"2022-01-05T01:26:00+09:00","owner":"","repo":"","title":"토스트에디터 리액트 적용하기 - 1"}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":25},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
