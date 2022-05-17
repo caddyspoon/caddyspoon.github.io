@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Jan 2022 01:26:00 &#43;0900</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>토스트에디터 리액트 적용하기 - 1</title>
-    <link>/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</link>
-    <pubDate>Wed, 05 Jan 2022 01:26:00 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</guid>
-    <description><![CDATA[Toast UI Editor를 React에 적용해봅시다.
+    <title>토스트에디터 리액트 적용기 1</title>
+    <link>/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</link>
+    <pubDate>Wed, 05 Jan 2022 01:26:00 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</guid>
+    <description><![CDATA[Toast UI Editor를 React에 적용하는 과정을 기록했습니다.
  WSYWIG는 What You See Is What You Get의 줄임말로, WSYWIG 에디터는 말 그대로 작성한 대로 보이는 에디터입니다. 블로그나 게시판 글 작성에서 흔히 쓰이는, 스타일을 직접 수정하고 글을 작성하는 그런 에디터 말이지요. 본 글은 WSYWIG 에디터 중 한 종류인 Toast UI Editor를 리액트 개발환경에 적용한 기록입니다.  서론: WYSIWYG 에디터 &amp; Toast UI Editor 프로젝트 중 WSYIWIG 에디터가 필요하게 됐습니다. 그리고 리액트 환경에서의 인기 WSYIWIG 에디터들은 대략 다음과 같은 에디터들이 있는 걸 알게 되었습니다.]]></description>
 </item><item>
     <title>환영합니다.</title>

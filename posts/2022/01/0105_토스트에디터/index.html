@@ -5,36 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>토스트에디터 리액트 적용하기 - 1 - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="토스트에디터 리액트 적용하기 - 1" />
-<meta property="og:description" content="Toast UI Editor를 React에 적용해봅시다.
+        <title>토스트에디터 리액트 적용기 1 - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="토스트에디터 리액트 적용기 1" />
+<meta property="og:description" content="Toast UI Editor를 React에 적용하는 과정을 기록했습니다.
  WSYWIG는 What You See Is What You Get의 줄임말로, WSYWIG 에디터는 말 그대로 작성한 대로 보이는 에디터입니다. 블로그나 게시판 글 작성에서 흔히 쓰이는, 스타일을 직접 수정하고 글을 작성하는 그런 에디터 말이지요. 본 글은 WSYWIG 에디터 중 한 종류인 Toast UI Editor를 리액트 개발환경에 적용한 기록입니다.  서론: WYSIWYG 에디터 &amp; Toast UI Editor 프로젝트 중 WSYIWIG 에디터가 필요하게 됐습니다. 그리고 리액트 환경에서의 인기 WSYIWIG 에디터들은 대략 다음과 같은 에디터들이 있는 걸 알게 되었습니다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" /><meta property="og:image" content="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" /><meta property="og:image" content="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-05T01:26:00+09:00" />
 <meta property="article:modified_time" content="2022-01-05T01:26:00+09:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"/>
-<meta name="twitter:title" content="토스트에디터 리액트 적용하기 - 1"/>
-<meta name="twitter:description" content="Toast UI Editor를 React에 적용해봅시다.
+<meta name="twitter:image" content="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"/>
+<meta name="twitter:title" content="토스트에디터 리액트 적용기 1"/>
+<meta name="twitter:description" content="Toast UI Editor를 React에 적용하는 과정을 기록했습니다.
  WSYWIG는 What You See Is What You Get의 줄임말로, WSYWIG 에디터는 말 그대로 작성한 대로 보이는 에디터입니다. 블로그나 게시판 글 작성에서 흔히 쓰이는, 스타일을 직접 수정하고 글을 작성하는 그런 에디터 말이지요. 본 글은 WSYWIG 에디터 중 한 종류인 Toast UI Editor를 리액트 개발환경에 적용한 기록입니다.  서론: WYSIWYG 에디터 &amp; Toast UI Editor 프로젝트 중 WSYIWIG 에디터가 필요하게 됐습니다. 그리고 리액트 환경에서의 인기 WSYIWIG 에디터들은 대략 다음과 같은 에디터들이 있는 걸 알게 되었습니다."/>
 <meta name="application-name" content="Social-Dev">
-<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" /><link rel="prev" href="/posts/2021/10/%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" /><link rel="prev" href="/posts/2021/10/%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "토스트에디터 리액트 적용하기 - 1",
+        "headline": "토스트에디터 리액트 적용기 1",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/2022\/01\/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/"
+            "@id": "\/posts\/2022\/01\/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "\/posts\/2022\/01\/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/featured-image.jpg",
+                            "url": "\/posts\/2022\/01\/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/featured-image.jpg",
                             "width":  720 ,
                             "height":  280 
-                        }],"genre": "posts","wordcount":  404 ,
-        "url": "\/posts\/2022\/01\/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/","datePublished": "2022-01-05T01:26:00+09:00","dateModified": "2022-01-05T01:26:00+09:00","publisher": {
+                        }],"genre": "posts","wordcount":  406 ,
+        "url": "\/posts\/2022\/01\/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0\/","datePublished": "2022-01-05T01:26:00+09:00","dateModified": "2022-01-05T01:26:00+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -108,18 +108,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">토스트에디터 리액트 적용하기 - 1</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">토스트에디터 리액트 적용기 1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;404 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;406 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"
-        data-srcset="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg, /posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg 1.5x, /posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg 2x"
+        data-src="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"
+        data-srcset="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg, /posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg 1.5x, /posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg 2x"
         data-sizes="auto"
-        alt="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"
-        title="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        alt="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg"
+        title="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -132,7 +132,7 @@
 </nav></div>
             </div><div class="content" id="content"><br>
 <blockquote>
-<p>Toast UI Editor를 React에 적용해봅시다.</p>
+<p>Toast UI Editor를 React에 적용하는 과정을 기록했습니다.</p>
 </blockquote>
 <br>
 <p><strong>WSYWIG</strong>는 <strong>What You See Is What You Get</strong>의 줄임말로, WSYWIG 에디터는 말 그대로 <strong>작성한 대로 보이는 에디터</strong>입니다. 블로그나 게시판 글 작성에서 흔히 쓰이는, 스타일을 직접 수정하고 글을 작성하는 그런 에디터 말이지요.
@@ -303,7 +303,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" data-title="토스트에디터 리액트 적용하기 - 1"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="/posts/2022/01/%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" data-title="토스트에디터 리액트 적용하기 - 1" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" data-title="토스트에디터 리액트 적용기 1"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/" data-title="토스트에디터 리액트 적용기 1" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
             </div>
         </div>
     </div>
