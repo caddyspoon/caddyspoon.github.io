@@ -2,9 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/posts/</loc><lastmod>2022-05-18T01:02:49&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>/</loc><lastmod>2022-05-18T01:02:49&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>/posts/2022/05/0518/</loc><lastmod>2022-05-18T01:02:49&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>/posts/</loc><lastmod>2022-01-05T01:26:00&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>/</loc><lastmod>2022-01-05T01:26:00&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</loc><lastmod>2022-01-05T01:26:00&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>/posts/2021/10/%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4/</loc><lastmod>2021-10-16T18:31:58&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

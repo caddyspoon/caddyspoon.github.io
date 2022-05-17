@@ -3,13 +3,7 @@
         <title>All Posts - Social&#43;DEV.</title>
         <link>/posts/</link>
         <description>All Posts | Social&#43;DEV.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 18 May 2022 01:02:49 &#43;0900</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>블로그 빌드 테스트</title>
-    <link>/posts/2022/05/0518/</link>
-    <pubDate>Wed, 18 May 2022 01:02:49 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>/posts/2022/05/0518/</guid>
-    <description><![CDATA[테마 적용 테스트 테스트용 포스트
-  ]]></description>
-</item><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Jan 2022 01:26:00 &#43;0900</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>토스트에디터 리액트 적용기 1</title>
     <link>/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</link>
     <pubDate>Wed, 05 Jan 2022 01:26:00 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>/posts/2022/01/0105_%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%97%90%EB%94%94%ED%84%B0/</guid>
