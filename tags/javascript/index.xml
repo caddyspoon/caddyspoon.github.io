@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>Javascript - Tag - Social&#43;DEV.</title>
+        <link>https://caddyspoon.github.io/tags/javascript/</link>
+        <description>Javascript - Tag - Social&#43;DEV.</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 24 May 2022 21:49:53 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+    <title>[Javascript] 사용자의 입력 완료까지 기다리기 &#34;debouncing&#34;</title>
+    <link>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</link>
+    <pubDate>Tue, 24 May 2022 21:49:53 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</guid>
+    <description><![CDATA[사용자의 입력을 기다렸다가 완전히 입력이 종료되었다고 판단되면 입력을 받도록 합니다. 디바운싱을 활용해서요.
+ 디바운싱이란? 사용자의 입력을 받아 처리해야 합니다. 단, 사용자의 모든 입력이 종료되었을 때만 입력을 받고 엔터 키를 누르는 등 입력이 종료되었다는 별도의 액션이 없습니다. 사용자의 입력이 완료 되었음을 어떻게 알고 처리할 수 있을까요?
+간단해보이지만 실제로 구현하고자 하면 생각보다 쉽지 않을 것입니다. 이러한 문제를 해결하기 위한 개념이 deboucing 입니다.
+디바운싱(debouncing)  기계식 스위치의 동작을 전기적 신호로 바꿀 때 생기는 진동 잡음을 제거하기 위하여 사용하는 하드웨어의 지연 회로, 소프트웨어의 적절한 지연 시간.]]></description>
+</item></channel>
+</rss>
