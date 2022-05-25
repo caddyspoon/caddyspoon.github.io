@@ -31,7 +31,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/caddyspoon.github.io\/posts\/2022\/05\/0520_debounce\/"
-        },"genre": "posts","keywords": "Javascript","wordcount":  1062 ,
+        },"genre": "posts","keywords": "Javascript","wordcount":  1084 ,
         "url": "https:\/\/caddyspoon.github.io\/posts\/2022\/05\/0520_debounce\/","datePublished": "2022-05-24T21:49:53+09:00","dateModified": "2022-05-24T21:49:53+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -108,8 +108,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">[Javascript] 사용자의 입력 완료까지 기다리기 &#34;debouncing&#34;</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-24">2022-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1062 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-24">2022-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1084 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -383,6 +383,7 @@
 <p>RFID 번호는 각기 고유한 규격을 가지고 있습니다. 각 RFID 번호는 <code>고유한 길이</code>, <code>첫 문자부터 일정 길이까지 정해진 값</code>, <code>특정 값을 가진 분류 값</code> 등 특정 문자열 패턴을 가지고 있고 유효한 값을 분리해줄 수 있었습니다.</p>
 <p>따라서 <strong>1. 유효한 RFID 값인가</strong>의 경우는, 어차피 별로 길지 않은 문자열이기에 문자열의 글자를 하나하나 탐색하여 길이, 문자에 올바른 위치에 고유번호가 존재하는가(slice 활용) 등으로 해결할 수 있었습니다. 아니면 <code>정규식</code> 을 통해 해결할 수 있는 방법도 있겠죠.</p>
 <p><strong>2. 중복된 값이 있는가</strong>는 그냥 RFID의 값으로 인식된 값들을 하나 씩 <code>Set()</code>에 넣어주어 해결했습니다. 간단하죠!</p>
+<p>이렇게 입력의 지연이 필요한 곳에 디바운싱을 적용하고 목표했던 서비스를 만들 수 있었습니다. 여러분도 입력의 완료 후 서비스의 작동이 필요하다면 디바운싱을 활용해 보세요.</p>
 <script src="https://utteranc.es/client.js"
         repo="caddyspoon/blog-comments"
         issue-term="pathname"
