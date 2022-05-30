@@ -39,11 +39,17 @@
 
 트리구조처럼 부모 노드가 자식 노드를 갖는 형태를 가지며, 각 단어의 바로 앞선 글자가 부모가 되며 그 다음 글자가 자식이 됩니다. 또한 맨 처음 노드인 `head` 는 비어있습니다.
 
-상단 그림에서 3번으로 표기된 `tea` 를 기준으로 해당 자료구조를 설명해보겠습니다.
+상단 그림에서 3번으로 표기된 `tea` 를 기준으로 해당 자료구조를 설명해보겠습니다. 
+
+{{< admonition warning "안내" >}}
+
+다음의 Trie 구현은 상황에 따라 예시일 뿐이며, 상황에 따라 다르게 사용됩니다. 본 코드에서는 Node에서 `word`라는 값을 사용했지만, 코드에 따라 boolean을 통해 해당 단어가 마지막인지 체크만하는 코드도 존재합니다.
+
+{{< /admonition >}}
 
 ---
 
-각 글자(로마자의 경우 알파벳)의 경우 Node로 구성되어 있으며, 각 노드는  `key`, `data`, `children`으로 구성되어 있습니다. 구조를 설명하면서 **완성된 단어**라는 표현을 사용할 건데요, 이는 `tea`, `ted`, `inn`처럼 Trie에 입력되는 하나의 단어를 지칭하는 표현으로 사용하도록 하겠습니다.
+각 글자(로마자의 경우 알파벳)의 경우 Node로 구성되어 있으며, 각 노드는  `key`, `word`, `children`으로 구성되어 있습니다. 구조를 설명하면서 **완성된 단어**라는 표현을 사용할 건데요, 이는 `tea`, `ted`, `inn`처럼 Trie에 입력되는 하나의 단어를 지칭하는 표현으로 사용하도록 하겠습니다.
 
 <br>
 
@@ -67,7 +73,7 @@
 
 **3. 단어의 마지막 글자는 해당 글자가 완성되었다는 정보를 갖습니다.**
 
-완성된 단어의 마지막 글자는 해당 글자가 완성되었다는 정보를 가집니다. 노드의 관점에서 보면, 해당 노드의  `data`에  완성된 단어의 값을 넣습니다. 완성된 단어가 아닌 경우 각 노드의 `data`는 `none` 혹은 `null` 값을 가질 것이며, 해당 노드가 완성된 단어의 마지막 글자일 경우 `data`값으로 완성된 단어를 가질 것입니다. 여기서는 `a`노드의 `data`값에 `tea`라는 값이 담기게 됩니다. 노드의 `data` 값을 통해 해당 단어가 완성된 단어인지 즉, **Trie에 이 단어가 입력이 되어있는지** 판별하게 됩니다. 
+완성된 단어의 마지막 글자는 해당 글자가 완성되었다는 정보를 가집니다. 노드의 관점에서 보면, 해당 노드의  `word`에  완성된 단어의 값을 넣습니다. 완성된 단어가 아닌 경우 각 노드의 `word`는 `none` 혹은 `null` 값을 가질 것이며, 해당 노드가 완성된 단어의 마지막 글자일 경우 `word`값으로 완성된 단어를 가질 것입니다. 여기서는 `a`노드의 `word`값에 `tea`라는 값이 담기게 됩니다. 노드의 `word` 값을 통해 해당 단어가 완성된 단어인지 즉, **Trie에 이 단어가 입력이 되어있는지** 판별하게 됩니다. 
 
 위의 그림을 기준으로 한다면 각 노드를 표현한 동그라미 안에 쓰여진 `to`, `te`, `tea`, `ted` 와 같은 값들이 이에 해당합니다. 다만 실제 코드에서는 완성된 단어가 아닐 경우 `null` 값을 넣어주고, 완성된 단어일 경우에만 해당 단어를 넣어줄 것입니다. 이 설명 역시 글로는 어렵지만, 코드를 본다면 명확히 이해가 될 것입니다.
 
@@ -81,7 +87,7 @@
 
 가령 Trie에 `tea` 라는 단어와 `tealeaf` 라는 단어가 모두 포함 되어 있을 경우죠.
 
-이 경우 `a` 노드는 `data` 에 완성된 단어인 `tea` 라는 가짐과 동시에 자식으로 `l`을 가지게 됩니다. 즉, 자식을 가지고 있는 노드지만 `tea`라는 완성된 단어의 마지막 노드가 되는 것이지요. 따라서 **해당 노드가 자식을 가지지 않는다를 기준**으로 해당 단어가 완성된 단어인가를 판별하는 것은 위험합니다.
+이 경우 `a` 노드는 `word` 에 완성된 단어인 `tea` 라는 가짐과 동시에 자식으로 `l`을 가지게 됩니다. 즉, 자식을 가지고 있는 노드지만 `tea`라는 완성된 단어의 마지막 노드가 되는 것이지요. 따라서 **해당 노드가 자식을 가지지 않는다를 기준**으로 해당 단어가 완성된 단어인가를 판별하는 것은 위험합니다.
 
 <br>
 
@@ -96,13 +102,13 @@
 ```javascript
 // 각 단어의 글자가 담길 Node
 class Node {
-  constructor(key, data = null) {
+  constructor(key, word = null) {
     // key는 각 단어의 알파벳
     this.key = key;
     
-    // data는 해당 key가 단어의 마지막 글자일 경우 해당 단어를 담아줍니다.
+    // word는 해당 key가 단어의 마지막 글자일 경우 해당 단어를 담아줍니다.
     // 따라서 처음 값은 null
-    this.data = data;
+    this.word = word;
     
     // children의 Object에는 자식이 되는 글자를 key로, value에는 Node를 담아줍니다.
     this.children = {};
@@ -142,9 +148,9 @@ class Trie {
       currNode = currNode.children[char];
     }
 
-    // for-loop가 종료되었다면, 즉 해당 currNode(현재 노드)가 마지막 글자가 되었다면, data값을 null이 아닌 string(완성된 단어)을 입력해줍니다.
-    // 'tea'라는 단어를 insert 했다면 'a' 노드만 data 값으로 'tea'를 가지고, 't'와 'a'의 data는 null일 것입니다.
-    currNode.data = string;
+    // for-loop가 종료되었다면, 즉 해당 currNode(현재 노드)가 마지막 글자가 되었다면, word값을 null이 아닌 string(완성된 단어)을 입력해줍니다.
+    // 'tea'라는 단어를 insert 했다면 'a' 노드만 word 값으로 'tea'를 가지고, 't'와 'a'의 word는 null일 것입니다.
+    currNode.word = string;
   }
 
   // Trie에 string이라는 값이 있는지 탐색하는 메소드입니다.
@@ -167,8 +173,8 @@ class Trie {
     }
 
     // for-loop가 무사히 종료되어 마지막 노드가 현재 노드(currNode)가 됐을 경우
-    // 현재 노드의 data가 찾고자 하는 단어와 같다면
-    if (currNode.data === string) {
+    // 현재 노드의 word가 찾고자 하는 단어와 같다면
+    if (currNode.word === string) {
       // 해당 단어는 본 Trie에 포함되어있다는 의미의 true를 반환합니다.
       return true;
       
@@ -198,13 +204,13 @@ class Trie {
 // 각 주석은 위의 class 코드에 적힌 주석과 똑같습니다.
 
 // 각 단어의 글자가 담길 Node
-const Node = function(key, data = null) {
+const Node = function(key, word = null) {
   // key는 각 단어의 알파벳
   this.key = key;
   
-  // data는 해당 key가 단어의 마지막 글자일 경우 해당 단어를 담아줍니다.
+  // word는 해당 key가 단어의 마지막 글자일 경우 해당 단어를 담아줍니다.
   // 따라서 처음 값은 null
-  this.data = data;
+  this.word = word;
   
   // children의 Object에는 자식이 되는 글자를 key로, value에는 Node를 담아줍니다.
   this.children = {};
@@ -242,9 +248,9 @@ const Trie = function() {
       currNode = currNode.children[char];
     }
     
-    // for-loop가 종료되었다면, 즉 해당 currNode(현재 노드)가 마지막 글자가 되었다면, data값을 null이 아닌 string(완성된 단어)을 입력해줍니다.
-    // 'tea'라는 단어를 insert 했다면 'a' 노드만 data 값으로 'tea'를 가지고, 't'와 'a'의 data는 null일 것입니다.
-    currNode.data = string;
+    // for-loop가 종료되었다면, 즉 해당 currNode(현재 노드)가 마지막 글자가 되었다면, word값을 null이 아닌 string(완성된 단어)을 입력해줍니다.
+    // 'tea'라는 단어를 insert 했다면 'a' 노드만 word 값으로 'tea'를 가지고, 't'와 'a'의 word는 null일 것입니다.
+    currNode.word = string;
   }
 
   
@@ -270,8 +276,8 @@ const Trie = function() {
     }
 
     // for-loop가 무사히 종료되어 마지막 노드가 현재 노드(currNode)가 됐을 경우
-    // 현재 노드의 data가 찾고자 하는 단어와 같다면
-    if (currNode.data === string) {
+    // 현재 노드의 word가 찾고자 하는 단어와 같다면
+    if (currNode.word === string) {
     // 해당 단어는 본 Trie에 포함되어있다는 의미의 true를 반환합니다.
       return true;
       
@@ -304,9 +310,9 @@ const Trie = function() {
 ### 3. 기본적인 사용 예시
 
 ```javascript
-const Node = function(key, data = null) {
+const Node = function(key, word = null) {
   this.key = key;
-  this.data = data;
+  this.word = word;
   this.children = {};
 }
 
@@ -325,7 +331,7 @@ const Trie = function() {
       currNode = currNode.children[char];
     }
     
-    currNode.data = string;
+    currNode.word = string;
   }
 
   this.search = function(string) {
@@ -339,7 +345,7 @@ const Trie = function() {
       }
     }
 
-    if (currNode.data === string) {
+    if (currNode.word === string) {
       return true;
     } else {
       return false;
@@ -436,9 +442,9 @@ const $textBox = document.createElement("p");
 $app.appendChild($textBox);
 
 
-const Node = function(key, data = null) {
+const Node = function(key, word = null) {
   this.key = key;
-  this.data = data;
+  this.word = word;
   this.children = {};
 }
 
@@ -457,7 +463,7 @@ const Trie = function() {
       currNode = currNode.children[char];
     }
     
-    currNode.data = string;
+    currNode.word = string;
   }
 
   this.search = function(string) {
@@ -477,10 +483,10 @@ const Trie = function() {
     // 재귀함수를 통해 현재 단어를 기준으로 만들 수 있는 단어들을 찾습니다.
     const recurSearch = (currNode) => {
       // 현재 노드에 완성된 단어가 있고
-      if (currNode.data) {
+      if (currNode.word) {
         // 찾은 단어가 아직 배열에 들어있지 않다면, 해당 단어를 삽입해줍니다.
-        if (!(currNode.data in foundWords)) {
-          foundWords = [ ...foundWords, currNode.data ];
+        if (!(currNode.word in foundWords)) {
+          foundWords = [ ...foundWords, currNode.word ];
         }
       }
   
@@ -550,9 +556,9 @@ const debounce = (func, delay) => {
 }
 
 
-const Node = function(key, data = null) {
+const Node = function(key, word = null) {
   this.key = key;
-  this.data = data;
+  this.word = word;
   this.children = {};
 }
 
@@ -571,7 +577,7 @@ const Trie = function() {
       currNode = currNode.children[char];
     }
     
-    currNode.data = string;
+    currNode.word = string;
   }
 
   this.search = function(string) {
@@ -588,9 +594,9 @@ const Trie = function() {
     let foundWords = [];
 
     const recurSearch = (currNode) => {
-      if (currNode.data) {
-        if (!(currNode.data in foundWords)) {
-          foundWords = [ ...foundWords, currNode.data ];
+      if (currNode.word) {
+        if (!(currNode.word in foundWords)) {
+          foundWords = [ ...foundWords, currNode.word ];
         }
       }
   
