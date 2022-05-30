@@ -3,7 +3,14 @@
         <title>Javascript - Tag - Social&#43;DEV.</title>
         <link>https://caddyspoon.github.io/tags/javascript/</link>
         <description>Javascript - Tag - Social&#43;DEV.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 24 May 2022 21:49:53 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 30 May 2022 22:10:32 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+    <title>[자료구조] Trie를 활용한 단어 색인과 자동완성 구현하기</title>
+    <link>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</link>
+    <pubDate>Mon, 30 May 2022 22:10:32 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</guid>
+    <description><![CDATA[입력 상자에 입력된 어절을 기반으로, 이전에 입력한 키워드를 자동으로 완성하는 방법을 알아봅니다. 자료구조 Trie을 통해 구현할 수 있죠.
+ 제가 정말 잘 샀다 싶은 앱들이 몇 있는데요, 편한가계부 는 그 중 하나입니다. (iOS에서는) 문자를 기반으로 사용자의 결제 내역을 자동으로 저장해주고, 일정 기간별로 통계를 보여주어 지난 한 기간에서의 지출 내용을 통한 미래 지출 계획 설계, 자가 분석 (+ 반성) 등을 도와주는 앱입니다.
+그리고 각 결제 내역을 입력할 때 세부 내용을 입력할 수 있는데, 단어 조각을 입력하면 사용자가 과거에 입력했던 기록을 기반으로 입력할 내용을 찾아줍니다.]]></description>
+</item><item>
     <title>[Javascript] 사용자의 입력 완료까지 기다리기 &#34;debouncing&#34;</title>
     <link>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</link>
     <pubDate>Tue, 24 May 2022 21:49:53 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</guid>
