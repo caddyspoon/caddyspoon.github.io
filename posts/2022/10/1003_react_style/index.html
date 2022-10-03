@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[React] 리액트에서 동적으로 스타일 적용하기 - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[React] 리액트에서 동적으로 스타일 적용하기" />
+<meta property="og:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.
+간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.
+버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.
+  1. 인라인에서 직접 스타일 하기 (Inline Style) JSX 코드의 style을 직접 변경하는 경우입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caddyspoon.github.io/posts/2022/10/1003_react_style/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-03T21:34:14+09:00" />
+<meta property="article:modified_time" content="2022-10-03T21:34:14+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[React] 리액트에서 동적으로 스타일 적용하기"/>
+<meta name="twitter:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.
+간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.
+버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.
+  1. 인라인에서 직접 스타일 하기 (Inline Style) JSX 코드의 style을 직접 변경하는 경우입니다."/>
+<meta name="application-name" content="Social-Dev">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2022/10/1003_react_style/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[React] 리액트에서 동적으로 스타일 적용하기",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/caddyspoon.github.io\/posts\/2022\/10\/1003_react_style\/"
+        },"genre": "posts","keywords": "Frontend, React, 짧게 쓰기","wordcount":  704 ,
+        "url": "https:\/\/caddyspoon.github.io\/posts\/2022\/10\/1003_react_style\/","datePublished": "2022-10-03T21:34:14+09:00","dateModified": "2022-10-03T21:34:14+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caddyspoon"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">('true' === 'true' && window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Social&#43;DEV.">사회개발.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Social&#43;DEV.."> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Social&#43;DEV.">사회개발.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Social&#43;DEV..">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">[React] 리액트에서 동적으로 스타일 적용하기</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-03">2022-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;704 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-인라인에서-직접-스타일-하기-inline-style">1. 인라인에서 직접 스타일 하기 (Inline Style)</a></li>
+    <li><a href="#2-classname을-동적으로-부여">2. className을 동적으로 부여</a></li>
+    <li><a href="#3-css-모듈-사용">3. CSS 모듈 사용</a>
+      <ul>
+        <li><a href="#1-modulecss-파일-생성">1. module.css 파일 생성</a></li>
+        <li><a href="#2-css-module-불러오기">2. CSS module 불러오기</a></li>
+        <li><a href="#3-style로-내부-속성-사용하기">3. style로 내부 속성 사용하기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>온라인 강의 사이트 udemy에서 <strong>React 완벽 가이드 with Redux, Next.js, TypeScript</strong>를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.</p>
+<p>간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.</p>
+<p>버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.</p>
+<figure><img src="MD_imgs/01.gif"/>
+</figure>
+
+<br>
+<hr>
+<h2 id="1-인라인에서-직접-스타일-하기-inline-style">1. 인라인에서 직접 스타일 하기 (Inline Style)</h2>
+<p>JSX 코드의 style을 직접 변경하는 경우입니다.</p>
+<p><code>isSwitched</code> 라는 값을 Boolean 값으로 설정해서, 버튼을 눌렀을 때마다 false/true를 변환해주도록 했습니다.</p>
+<p>inline에서 스타일을 직접 지정할 경우 이중괄호를 사용합니다. 바깥 중괄호는 JSX 내 자바스크립트 코드를 사용하기 위한 중괄호이며, 내부 중괄호는 객체 리터을 사용하기 위한 중괄호입니다.</p>
+<p>전체 코드는 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// src/components/StylePrac.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="s2">&#34;./StylePrac.css&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">StylePrac</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isSwitched</span><span class="p">,</span> <span class="nx">setIsSwitced</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">switchHandler</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setIsSwitced</span><span class="p">(</span><span class="o">!</span><span class="nx">isSwitched</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="p">{{</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">isSwitched</span> <span class="o">?</span> <span class="s2">&#34;#BB363F&#34;</span> <span class="o">:</span> <span class="s2">&#34;#000&#34;</span> <span class="p">}}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Make</span> <span class="nx">our</span> <span class="nx">world</span> <span class="nx">colourful</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;StylePrac__button&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">switchHandler</span><span class="p">}&gt;</span><span class="nx">Switch</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">StylePrac</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>여기서 관련된 코드 조각은 이 부분입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="p">{{</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">isSwitched</span> <span class="o">?</span> <span class="s2">&#34;#BB363F&#34;</span> <span class="o">:</span> <span class="s2">&#34;#000&#34;</span> <span class="p">}}&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>isSwitched</code>가 <code>true</code>면 해당 문구를 로코코 레드에 해당하는 <code>#BB363F</code> 색으로, 그렇지 않으면 검은색으로 색칠됩니다.</p>
+<br>
+<p>만약 해당 문서의 <strong>기본 글꼴색이 검정색인 경우</strong> 다음과 같이 표현할 수도 있습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="p">{{</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">isSwitched</span> <span class="o">&amp;&amp;</span> <span class="s2">&#34;#BB363F&#34;</span> <span class="p">}}&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>isSwitched</code> 인 경우 로코코 레드 색상이 적용됩니다.</p>
+<br>
+<hr>
+<h2 id="2-classname을-동적으로-부여">2. className을 동적으로 부여</h2>
+<p>인라인으로 스타일을 부여하는 경우 코드가 스타일에 집중되기 때문에 보기 힘듭니다. 클래스 속성을 동적으로 부여해 스타일을 관리하겠습니다.</p>
+<p>이 경우는 템플릿 리터럴을 사용합니다.</p>
+<p>클래스로 스타일을 관리할 것이니까, 먼저 해당 클래스 이름을 새롭게 만들면서 css를 작성해야겠죠.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* StylePrac.css */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 기본 색상인 검정색으로 지정합니다. */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">header-text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* switched 클래스가 부여되면 아래 색상은 로코코 레드 색상이 적용됩니다. */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">switched</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#BB363F</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>JSX 코드는 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`header-text </span><span class="si">${</span><span class="nx">isSwitched</span> <span class="o">?</span> <span class="s2">&#34;switched&#34;</span> <span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>isSwitched가 true이면 해당 className은 &ldquo;header-text switched&quot;가 되고, false면 &ldquo;header-text&quot;만 남을 겁니다.</p>
+<p>또한 다음과 같이 표현해도 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`header-text </span><span class="si">${</span><span class="nx">isSwitched</span> <span class="o">&amp;&amp;</span> <span class="s2">&#34;switched&#34;</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<hr>
+<h2 id="3-css-모듈-사용">3. CSS 모듈 사용</h2>
+<p>그냥 CSS를 사용하면 해당 클래스 네임의 스타일이 전역으로 적용되기 때문에 해당 컴포넌트에만 적용 가능한 스타일을  사용하는 것이 권장됩니다. CSS 클래스 컨벤션을 <code>컴포넌트이름__클래스이름</code> 과 같이 지정해줄 수도 있겠지만, 실수가 생길 수도 있죠. 따라서 해당 컴포넌트에 대응하는 스타일만을 적용하도록 해주는 여러가지 방법이 있습니다. 여기서는 CSS 모듈을 사용해보겠습니다.</p>
+<h3 id="1-modulecss-파일-생성">1. module.css 파일 생성</h3>
+<p>CSS 파일을 CSS 모듈 파일로 만들어줍니다. 파일 확장자를 <code>.css</code>에서 <code>.module.css</code>로 바꾸어주기만 하면 됩니다.</p>
+<p>다음과 같은 파일로 변경됩니다. 내용은 같습니다. 확장자면 바뀌네요.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* StylePrac.module.css */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">header-text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">switched</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#BB363F</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="2-css-module-불러오기">2. CSS module 불러오기</h3>
+<p>해당 컴포넌트의 자바스크립트 코드에서 해당 모듈을 불러옵니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 해당 불러오기 대신
+</span></span></span><span class="line"><span class="cl"><span class="c1">// import &#34;./StylePrac.css&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// CSS 모듈 파일을 불러와줍니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">style</span> <span class="nx">from</span> <span class="s2">&#34;./StylePrac.module.css&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="3-style로-내부-속성-사용하기">3. style로 내부 속성 사용하기</h3>
+<p><code>style</code> 을 불러왔기 때문에 먼저 <code>style</code>을 접근하고 내부에 있는 속성에 접근합니다. 각 스타일의 경우 JSX 내 자바스크립트 문법으로 표기해주어야 하므로 템플릿 리터럴을 사용합니다.</p>
+<p>해당 표기에서는 다른 객체에 접근하는 것처럼 점 표기법(Dot Notation)과 대괄호 표기법(Bracket Notation) 모두 사용할 수 있습니다.</p>
+<p>단, 스타일에서 사용하는 클래스 이름의 경우 케밥 케이스를 사용하는 경우가 많기 때문에, 상황에 맞게 대괄호 표기법을 사용해줍니다.</p>
+<p>해당 JSX 코드 조각을 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// StylePrac.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`</span><span class="si">${</span><span class="nx">style</span><span class="p">[</span><span class="s2">&#34;header-text&#34;</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">isSwitched</span> <span class="o">&amp;&amp;</span> <span class="nx">style</span><span class="p">[</span><span class="s2">&#34;switched&#34;</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// style.switched와 같이 점 표기법으로 아래와 같이 표시하는 것도 동일합니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// &lt;h1 className={`${style[&#34;header-text&#34;]} ${isSwitched &amp;&amp; style.switched}`}&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<p>개발자 도구를 통해 해당 HTML을 확인해보면 해당 컴포넌트(여기서는 StylePrac.js)의 고유한 클래스 값이 적용된 것을 확인할 수 있습니다.</p>
+<figure><img src="MD_imgs/02.png"
+         alt="색상 네모 내부의 고유 값이 지정되었음을 확인할 수 있습니다."/><figcaption>
+            <p>색상 네모 내부의 고유 값이 지정되었음을 확인할 수 있습니다.</p>
+        </figcaption>
+</figure>
+
+<br>
+<p>해당 컴포넌트의 전체 코드는 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">style</span> <span class="nx">from</span> <span class="s2">&#34;./StylePrac.module.css&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">StylePrac</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">isSwitched</span><span class="p">,</span> <span class="nx">setIsSwitced</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">switchHandler</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setIsSwitced</span><span class="p">(</span><span class="o">!</span><span class="nx">isSwitched</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`</span><span class="si">${</span><span class="nx">style</span><span class="p">[</span><span class="s2">&#34;header-text&#34;</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">isSwitched</span> <span class="o">&amp;&amp;</span> <span class="nx">style</span><span class="p">[</span><span class="s2">&#34;switched&#34;</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Make</span> <span class="nx">our</span> <span class="nx">world</span> <span class="nx">colourful</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">style</span><span class="p">[</span><span class="s2">&#34;StylePrac__button&#34;</span><span class="p">]}</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">switchHandler</span><span class="p">}&gt;</span><span class="nx">Switch</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">StylePrac</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<script src="https://utteranc.es/client.js"
+        repo="caddyspoon/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<br></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-10-03</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://caddyspoon.github.io/posts/2022/10/1003_react_style/" data-title="[React] 리액트에서 동적으로 스타일 적용하기"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="https://caddyspoon.github.io/posts/2022/10/1003_react_style/" data-title="[React] 리액트에서 동적으로 스타일 적용하기" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/frontend/">Frontend</a>,&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%EC%A7%A7%EA%B2%8C-%EC%93%B0%EA%B8%B0/">짧게 쓰기</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2022/05/0530_trie_autocomplete/" class="prev" rel="prev" title="[자료구조] Trie를 활용한 단어 색인과 자동완성 구현하기"><i class="fas fa-angle-left fa-fw"></i>[자료구조] Trie를 활용한 단어 색인과 자동완성 구현하기</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.98.0">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://caddyspoon.github.io" target="_blank" rel="noopener noreferrer">Caddyspoon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -3,7 +3,15 @@
         <title>All Posts - Social&#43;DEV.</title>
         <link>https://caddyspoon.github.io/posts/</link>
         <description>All Posts | Social&#43;DEV.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 30 May 2022 22:10:32 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Oct 2022 21:34:14 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>[React] 리액트에서 동적으로 스타일 적용하기</title>
+    <link>https://caddyspoon.github.io/posts/2022/10/1003_react_style/</link>
+    <pubDate>Mon, 03 Oct 2022 21:34:14 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/10/1003_react_style/</guid>
+    <description><![CDATA[온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.
+간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.
+버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.
+  1. 인라인에서 직접 스타일 하기 (Inline Style) JSX 코드의 style을 직접 변경하는 경우입니다.]]></description>
+</item><item>
     <title>[자료구조] Trie를 활용한 단어 색인과 자동완성 구현하기</title>
     <link>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</link>
     <pubDate>Mon, 30 May 2022 22:10:32 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</guid>
