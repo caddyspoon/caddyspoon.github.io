@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>[React] 리액트에서 동적으로 스타일 적용하기 - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[React] 리액트에서 동적으로 스타일 적용하기" />
-<meta property="og:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.
+<meta property="og:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 기반으로 몇 가지 정리해보고자 합니다.
 간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.
 버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.
   1. 인라인에서 직접 스타일 하기 (Inline Style) JSX 코드의 style을 직접 변경하는 경우입니다." />
@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[React] 리액트에서 동적으로 스타일 적용하기"/>
-<meta name="twitter:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.
+<meta name="twitter:description" content="온라인 강의 사이트 udemy에서 React 완벽 가이드 with Redux, Next.js, TypeScript를 요즘 수강 중인데, 해당 강의에서 나온 내용을 기반으로 몇 가지 정리해보고자 합니다.
 간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.
 버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.
   1. 인라인에서 직접 스타일 하기 (Inline Style) JSX 코드의 style을 직접 변경하는 경우입니다."/>
@@ -31,7 +31,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/caddyspoon.github.io\/posts\/2022\/10\/1003_react_style\/"
-        },"genre": "posts","keywords": "Frontend, React, 짧게 쓰기","wordcount":  704 ,
+        },"genre": "posts","keywords": "Frontend, React, 짧게 쓰기","wordcount":  695 ,
         "url": "https:\/\/caddyspoon.github.io\/posts\/2022\/10\/1003_react_style\/","datePublished": "2022-10-03T21:34:14+09:00","dateModified": "2022-10-03T21:34:14+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -108,7 +108,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">[React] 리액트에서 동적으로 스타일 적용하기</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-03">2022-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;704 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-03">2022-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;695 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -128,7 +128,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>온라인 강의 사이트 udemy에서 <strong>React 완벽 가이드 with Redux, Next.js, TypeScript</strong>를 요즘 수강 중인데, 해당 강의에서 나온 내용을 토대로 몇 가지 제 방식대로 추가적으로 기록하는 의미로 동적으로 스타일을 변화시키는 법을 정리해보고자 합니다.</p>
+            </div><div class="content" id="content"><p>온라인 강의 사이트 udemy에서 <strong>React 완벽 가이드 with Redux, Next.js, TypeScript</strong>를 요즘 수강 중인데, 해당 강의에서 나온 내용을 기반으로 몇 가지 정리해보고자 합니다.</p>
 <p>간단한 예시 화면을 만들어 보겠습니다. 멋진 팬톤의 Baby Blue를 배경색으로, Classic Blue를 버튼 색상으로 사용했습니다.</p>
 <p>버튼이 있고 버튼을 누르면 텍스트 색상을 바꾸도록 해볼까요. 변했을 때 색상은 마찬가지로 팬톤 색상의 Rococco Red로 바꾸어 보겠습니다.</p>
 <figure><img src="MD_imgs/01.gif"/>
