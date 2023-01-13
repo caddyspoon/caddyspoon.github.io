@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript) - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)" />
+<meta property="og:description" content="카카오의 2023년 블라인드 공개채용의 코딩테스트 문제가 공개되었습니다. 프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있습니다.
+🚀여기를 클릭하면 바로 이동할 수 있습니다. 공개된 문제 중 몇 가지 문제를 풀어 코드를 올려보려고 합니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲 저는 이렇게 짰다 정도로 포스팅하려고 합니다.
+ 문제 🚀개인정보 수집 유효기간  참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1번 문제로 자주 나오는 데이터 변환 문제입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-14T00:55:54+09:00" />
+<meta property="article:modified_time" content="2023-01-14T00:55:54+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)"/>
+<meta name="twitter:description" content="카카오의 2023년 블라인드 공개채용의 코딩테스트 문제가 공개되었습니다. 프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있습니다.
+🚀여기를 클릭하면 바로 이동할 수 있습니다. 공개된 문제 중 몇 가지 문제를 풀어 코드를 올려보려고 합니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲 저는 이렇게 짰다 정도로 포스팅하려고 합니다.
+ 문제 🚀개인정보 수집 유효기간  참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1번 문제로 자주 나오는 데이터 변환 문제입니다."/>
+<meta name="application-name" content="Social-Dev">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2022/10/1003_react_style/" /><link rel="next" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84\/"
+        },"genre": "posts","keywords": "JavaScript, Algorithm, Coding Test, Kakao","wordcount":  444 ,
+        "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84\/","datePublished": "2023-01-14T00:55:54+09:00","dateModified": "2023-01-14T00:55:54+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caddyspoon"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">('true' === 'true' && window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Social&#43;DEV.">사회개발.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Social&#43;DEV.."> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Social&#43;DEV.">사회개발.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Social&#43;DEV..">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;444 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#문제">문제</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#개인정보-수집-유효기간-httpsschoolprogrammerscokrlearncourses30lessons150370"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150370">🚀개인정보 수집 유효기간 </a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#풀이">풀이</a>
+      <ul>
+        <li><a href="#1-해결-아이디어">1. 해결 아이디어</a>
+          <ul>
+            <li><a href="#날짜-환산해주기">날짜 환산해주기</a></li>
+            <li><a href="#정책-정리하기">정책 정리하기</a></li>
+            <li><a href="#기타-유의사항">기타 유의사항</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-코드">2. 코드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>카카오의 2023년 블라인드 공개채용의 코딩테스트 문제가 공개되었습니다. <a href="https://school.programmers.co.kr/" target="_blank" rel="noopener noreferrer">프로그래머스</a>의 <code>2023 KAKAO BLIND RECRUITMENT</code> 문제팩 필터를 통해 찾아볼 수 있습니다.</p>
+<p><a href="https://school.programmers.co.kr/learn/challenges?order=recent&amp;page=1&amp;partIds=37527" target="_blank" rel="noopener noreferrer">🚀여기</a>를 클릭하면 바로 이동할 수 있습니다. 공개된 문제 중 몇 가지 문제를 풀어 코드를 올려보려고 합니다.</p>
+<p>제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲 저는 이렇게 짰다 정도로 포스팅하려고 합니다.</p>
+<hr>
+<h2 id="문제">문제</h2>
+<h4 id="개인정보-수집-유효기간-httpsschoolprogrammerscokrlearncourses30lessons150370"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150370" target="_blank" rel="noopener noreferrer">🚀개인정보 수집 유효기간 </a></h4>
+<p><em>참고 링크 | <a href="https://programmers.zendesk.com/hc/ko/articles/360034546572-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%EC%9D%98-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%99%B8%EB%B6%80%EC%97%90-%EA%B2%8C%EC%8B%9C%ED%95%A0-%EC%88%98-%EC%9E%88%EB%82%98%EC%9A%94-" target="_blank" rel="noopener noreferrer">프로그래머스의 문제를 외부에 게시할 수 있나요?</a></em></p>
+<hr>
+<h2 id="풀이">풀이</h2>
+<p>1번 문제로 자주 나오는 데이터 변환 문제입니다. 몇 가지 주의사항만 주의해주면 어려움 없이 해결할 수 있는 문제입니다.</p>
+<h3 id="1-해결-아이디어">1. 해결 아이디어</h3>
+<h4 id="날짜-환산해주기">날짜 환산해주기</h4>
+<p>일자를 오늘 기준으로 유효한지 파악하는 문제입니다. 먼저 <code>기준 일자 단위를 정합니다.</code> 시간의 최소단위가 일자이므로 <code>일 기준</code>으로 각 날짜들을 환산해줍니다. 단 제한사항으로 가장 이른 시작 연도는 2000년이며, 각 월은 28일입니다.</p>
+<p>따라서 연도는 2001년을 1, 2010년을 10 등의 단위 연도로 바꿔주기 위해 주어진 연도에 2000을 빼줍니다. 또한, 각 개월은 28일을 곱해서 일 수를 구해줍니다. 따라서 구하게 될 변환 날짜는 다음과 같습니다.</p>
+<p><code>환산 일자 = ((기준 연도 - 2000) * 12개월 * 28일) + 개월 * 28 + 일</code></p>
+<h4 id="정책-정리하기">정책 정리하기</h4>
+<p>각 정책들은 개월 수로 표현됩니다. 또한 정책의 이름은 스트링인 알파벳으로 주어집니다. 따라서 정책 이름을 키 값으로, 유효 개월 수를 밸류로 하는 객체로 접근하면 데이터 접근이 편할 것 같네요.</p>
+<h4 id="기타-유의사항">기타 유의사항</h4>
+<p>정책 유효 기한은 만으로 1년입니다. 따라서 기준 일자의 일자에서 하나 부족한 날까지 유효합니다. 가령 유효 기간이 12개월이고 보관 시작일이 2021년 1월 <code>5</code>일이라면 2022년 1월 <code>4</code>일까지가 유효한 기간입니다. 이는 친절하게 문제해서도 알려주고 있네요.</p>
+<br>
+<h3 id="2-코드">2. 코드</h3>
+<p>따라서 코드를 작성하면 다음과 같습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 연월일을 전달 받으면 이를 환산된 일자로 변환하는 함수
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">convertDate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">date</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">dateInfo</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">elm</span> <span class="p">=&gt;</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">elm</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="nx">dateInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">+</span> <span class="nx">dateInfo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">+</span> <span class="nx">dateInfo</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">solution</span> <span class="o">=</span> <span class="p">(</span><span class="nx">today</span><span class="p">,</span> <span class="nx">terms</span><span class="p">,</span> <span class="nx">privacies</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  	<span class="c1">// 변환된 오늘 날짜
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">_today</span> <span class="o">=</span> <span class="nx">convertDate</span><span class="p">(</span><span class="nx">today</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  	<span class="c1">// 정책 이름 - 개월 수를 key-value로 하는 객체
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">policyInfo</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">terms</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">term</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="p">[</span><span class="nx">policyName</span><span class="p">,</span> <span class="nx">month</span><span class="p">]</span> <span class="o">=</span> <span class="nx">term</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      	<span class="cm">/** month 값은 스트링이므로 Number로 변환해줍시다.
+</span></span></span><span class="line"><span class="cl"><span class="cm">      	 * 여러 변환 방법이 있지만, 
+</span></span></span><span class="line"><span class="cl"><span class="cm">      	 * JavaScript 작성의 컨벤션으로 많이 사용되는 AirBnb의 숫자 변환은 Number()를 사용해주는 것입니다. 
+</span></span></span><span class="line"><span class="cl"><span class="cm">      	 * 여기서도 그렇게 해주도록 할게요. 
+</span></span></span><span class="line"><span class="cl"><span class="cm">      	 */</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">policyInfo</span><span class="p">[</span><span class="nx">policyName</span><span class="p">]</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">month</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nx">privacies</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">infos</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="p">[</span><span class="nx">dateInfo</span><span class="p">,</span> <span class="nx">policy</span><span class="p">]</span> <span class="o">=</span> <span class="nx">infos</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      	<span class="c1">// 유효 완료 일자를 환산해준 값. 만으로 개월 수가 유효하기 때문에 1을 빼줍니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">dateConverted</span> <span class="o">=</span> <span class="nx">convertDate</span><span class="p">(</span><span class="nx">dateInfo</span><span class="p">)</span> <span class="o">+</span> <span class="nx">policyInfo</span><span class="p">[</span><span class="nx">policy</span><span class="p">]</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      	<span class="c1">// 만약 오늘이 유효 일자를 넘었다면 파기해야 할 정보이므로 결과에 넣어줍니다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">_today</span> <span class="o">&gt;</span> <span class="nx">dateConverted</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1">// 인덱스가 1부터 시작하니까 잊지 말고 1 더해주기.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<br></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-01-14</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">Javascript</a>,&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/coding-test/">Coding Test</a>,&nbsp;<a href="/tags/kakao/">Kakao</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2022/10/1003_react_style/" class="prev" rel="prev" title="[React] 리액트에서 동적으로 스타일 적용하기"><i class="fas fa-angle-left fa-fw"></i>[React] 리액트에서 동적으로 스타일 적용하기</a>
+            <a href="/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" class="next" rel="next" title="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)">[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.98.0">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://caddyspoon.github.io" target="_blank" rel="noopener noreferrer">Caddyspoon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

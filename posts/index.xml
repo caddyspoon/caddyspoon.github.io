@@ -3,7 +3,25 @@
         <title>All Posts - Social&#43;DEV.</title>
         <link>https://caddyspoon.github.io/posts/</link>
         <description>All Posts | Social&#43;DEV.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Oct 2022 21:34:14 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Jan 2023 02:00:00 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</title>
+    <link>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/</link>
+    <pubDate>Sat, 14 Jan 2023 02:00:00 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/</guid>
+    <description><![CDATA[첫 번째 문제에 이어 다음으로 이모티콘 할인행사 문제 코드를 올려보려고 합니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+ 문제 🚀이모티콘 할인행사 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?를 먼저 생각했습니다.]]></description>
+</item><item>
+    <title>[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)</title>
+    <link>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/</link>
+    <pubDate>Sat, 14 Jan 2023 00:55:54 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/</guid>
+    <description><![CDATA[카카오의 2023년 블라인드 공개채용의 코딩테스트 문제가 공개되었습니다. 프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있습니다.
+🚀여기를 클릭하면 바로 이동할 수 있습니다. 공개된 문제 중 몇 가지 문제를 풀어 코드를 올려보려고 합니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲 저는 이렇게 짰다 정도로 포스팅하려고 합니다.
+ 문제 🚀개인정보 수집 유효기간  참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1번 문제로 자주 나오는 데이터 변환 문제입니다.]]></description>
+</item><item>
     <title>[React] 리액트에서 동적으로 스타일 적용하기</title>
     <link>https://caddyspoon.github.io/posts/2022/10/1003_react_style/</link>
     <pubDate>Mon, 03 Oct 2022 21:34:14 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/10/1003_react_style/</guid>

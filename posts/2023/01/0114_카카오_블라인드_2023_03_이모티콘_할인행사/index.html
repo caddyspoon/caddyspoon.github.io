@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python) - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)" />
+<meta property="og:description" content="첫 번째 문제에 이어 다음으로 이모티콘 할인행사 문제 코드를 올려보려고 합니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+ 문제 🚀이모티콘 할인행사 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?를 먼저 생각했습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-14T02:00:00+09:00" />
+<meta property="article:modified_time" content="2023-01-14T02:00:00+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)"/>
+<meta name="twitter:description" content="첫 번째 문제에 이어 다음으로 이모티콘 할인행사 문제 코드를 올려보려고 합니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+ 문제 🚀이모티콘 할인행사 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?를 먼저 생각했습니다."/>
+<meta name="application-name" content="Social-Dev">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/"
+        },"genre": "posts","keywords": "JavaScript, Algorithm, Coding Test, Kakao","wordcount":  1260 ,
+        "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/","datePublished": "2023-01-14T02:00:00+09:00","dateModified": "2023-01-14T02:00:00+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caddyspoon"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">('true' === 'true' && window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Social&#43;DEV.">사회개발.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Social&#43;DEV.."> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Social&#43;DEV.">사회개발.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Social&#43;DEV..">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1260 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#문제">문제</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#이모티콘-할인행사httpsschoolprogrammerscokrlearncourses30lessons150370"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150370">🚀이모티콘 할인행사</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#풀이">풀이</a>
+      <ul>
+        <li><a href="#1-해결-아이디어">1. 해결 아이디어</a>
+          <ul>
+            <li><a href="#문제-해결-방법을-고민해보기">문제 해결 방법을 고민해보기</a></li>
+            <li><a href="#시행횟수-짐작해보기">시행횟수 짐작해보기</a></li>
+            <li><a href="#모든-할인의-수를-어떻게-표현할-것인가">모든 할인의 수를 어떻게 표현할 것인가?</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-코드">2. 코드</a>
+          <ul>
+            <li><a href="#1-중복조합-코드-짜기">1. 중복조합 코드 짜기</a></li>
+            <li><a href="#2-product-사용하기">2. product 사용하기</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>첫 번째 문제에 이어 다음으로 <code>이모티콘 할인행사</code> 문제 코드를 올려보려고 합니다.</p>
+<p><a href="https://school.programmers.co.kr/" target="_blank" rel="noopener noreferrer">프로그래머스</a>의 <code>2023 KAKAO BLIND RECRUITMENT</code> 문제팩 필터를 통해 찾아볼 수 있으며, <a href="https://school.programmers.co.kr/learn/challenges?order=recent&amp;page=1&amp;partIds=37527" target="_blank" rel="noopener noreferrer">🚀여기</a>를 클릭하면 바로 이동할 수 있습니다.</p>
+<p>제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲</p>
+<hr>
+<h2 id="문제">문제</h2>
+<h4 id="이모티콘-할인행사httpsschoolprogrammerscokrlearncourses30lessons150370"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150370" target="_blank" rel="noopener noreferrer">🚀이모티콘 할인행사</a></h4>
+<p><em>참고 링크 | <a href="https://programmers.zendesk.com/hc/ko/articles/360034546572-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%EC%9D%98-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%99%B8%EB%B6%80%EC%97%90-%EA%B2%8C%EC%8B%9C%ED%95%A0-%EC%88%98-%EC%9E%88%EB%82%98%EC%9A%94-" target="_blank" rel="noopener noreferrer">프로그래머스의 문제를 외부에 게시할 수 있나요?</a></em></p>
+<hr>
+<h2 id="풀이">풀이</h2>
+<h3 id="1-해결-아이디어">1. 해결 아이디어</h3>
+<h4 id="문제-해결-방법을-고민해보기">문제 해결 방법을 고민해보기</h4>
+<p>예전에는 코딩 테스트 문제를 풀 때 <code>그리디 하게 문제 해결이 가능한가?</code>를 먼저 생각했습니다. 그런데 그렇게 접근하는 것보다는 <code>완전탐색이 가능한가?</code>를 먼저 접근했을 때 더 빨리 문제 해결을 할 수 있었습니다. 탐색 시간을 생각해보고 안되겠다 싶으면 그리디한 문제 해결법을 찾는 순서로 문제를 해결하는 게 더 효율적일 때가 많더라고요.</p>
+<p>엄격하게 속도를 파악했을 때, 순수 파이썬은 1초에 1000만 루프의 일을 처리할 수 있다고 합니다. 그러니까 대략 1000만번 미만의 시행 횟수의 경우 무난하게 통과할 수 있다고 예측할 수 있겠습니다.</p>
+<p><em><strong>참고</strong> 파이썬의 처리 속도에 대한 아티클: <a href="https://peter-jp-xie.medium.com/how-slow-is-python-compared-to-c-3795071ce82a" target="_blank" rel="noopener noreferrer">How Slow is Python Compared to C. </a> (2020.07.13 작성)</em></p>
+<h4 id="시행횟수-짐작해보기">시행횟수 짐작해보기</h4>
+<p>완전 탐색으로 문제를 해결한다고 할 경우 문제의 핵심이 되는 경우의 수는 <code>이모티콘 할인</code>의 가짓 수입니다. 문제에 의하면 이모티콘은 반드시 할인 가격으로 판매되는데 할인율의 경우 [10%, 20%, 30%, 40%]의 총 네 가지입니다. 그리고 고객들은 판매되는 가격 기준으로 이모티콘을 구매할지, 이모티콘 플러스를 구독할지 결정합니다.</p>
+<p>고객의 수를 <code>n</code>으로, 이모티콘의 개수를 <code>m</code>이라고 할 경우 경우의 수는 <code>4^m * n </code>입니다. 그런데 문제 제한 사항을 보면 이모티콘 개수는 최대 7개입니다. m의 값만 고려할 때, 4의 7 제곱의 경우 16,384번의 시행을 하게 되는 것이고 고객의 최대 수 값 100을 고려해도 1,638,400번의 시행횟수이므로 충분히 해볼만한 가짓수로 볼 수 있겠네요. 그래서 모든 이모티콘의 할인 경우의 수를 통해 문제를 해결해볼만 하다고 보고 모든 가짓수를 탐색하는 식으로 문제를 해결해보겠습니다.</p>
+<h4 id="모든-할인의-수를-어떻게-표현할-것인가">모든 할인의 수를 어떻게 표현할 것인가?</h4>
+<p>모든 경우의 수를 찾는 것이므로 중복조합의 경우의 수를 고려하는 문제입니다. 여러 구현 방법이 있지만, 저는 재귀함수를 사용하는 편이 제일 편리하더라고요. 여기서는 먼저 재귀함수로 중복 조합을 표현하겠습니다.</p>
+<p>그리고 파이썬에서는 <code>itertools</code> 모듈의 <code>product</code>가 자체적으로 중복조합을 제공합니다. <em>갓이썬&hellip; 그저 빛&hellip;⭐️</em></p>
+<hr>
+<br>
+<h3 id="2-코드">2. 코드</h3>
+<h4 id="1-중복조합-코드-짜기">1. 중복조합 코드 짜기</h4>
+<p>할인율은 10/20/30/40의 총 네 가지 값을 가집니다. 이모티콘이 하나일 경우 해당 할인율이 적용되는 네 가지의 경우가, 두 가지일 경우 4 * 4의 16가지 경우의 수가 만들어지겠죠. 두 이모티콘 모두 10% 할인으로 경우의 수를 늘려간다고 한다면</p>
+<p>(10, 10), (10, 20), (10, 30), (10, 40), (20, 10), (20, 20) &hellip; (40, 20), (40, 30), (40, 40)</p>
+<p>위와 같은 모든 할인 경우의 수를 살펴볼 것입니다.</p>
+<p>재귀로 함수를 구현한다면 다음과 같은 코드가 될 것입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">재귀함수</span><span class="p">(</span><span class="n">현재_인덱스</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">현재_할인율_정보</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">이모티콘_개수</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">		<span class="k">nonlocal</span> <span class="n">전체_할인률이_담기는_리스트</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 현재 인덱스를 0부터 이모티콘 개수까지 이동할텐데, 현재 인덱스가 이모티콘 개수와 같다면 모든 경우의 수를 변경해준 결과일 것입니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">현재_인덱스</span> <span class="o">==</span> <span class="n">이모티콘_개수</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">현재_할인율_정보</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 모든 할인율에 대해 </span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># dc_rate는 [10, 20, 30, 40]을 넣은 값입니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">할인율</span> <span class="ow">in</span> <span class="n">dc_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    		<span class="n">현재_할인율_정보</span><span class="p">[</span><span class="n">현재_인덱스</span><span class="p">]</span> <span class="o">=</span> <span class="n">할인율</span>	<span class="c1"># 10, 20, 30, 40 중 하나를 넣어줍니다.</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 다음 인덱스로 이동해줍니다.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">재귀함수</span><span class="p">(</span><span class="n">현재_인덱스</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">현재_할인율_정보</span><span class="p">)</span> <span class="c1"># 할인율 정보 리스트도 같이 넣어주죠.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>중복 조합이기 때문에 그리 복잡하지 않은 재귀 함수가 완성됩니다.</p>
+<p>해당 코드로 문제를 해결하는 코드를 완성하면 다음과 같습니다.</p>
+<p>solution() 함수 내부에 필요한 함수들을 넣었습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  	<span class="c1"># 문제에서 주어진 할인율 조건 네 가지</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dc_rate</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 수많은 할인율의 경우의 수가 구현될 리스트의 초기 정보</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp_arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 주어진 할인율에 따라 계산하는 함수</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">cal</span><span class="p">(</span><span class="n">dc_info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      	<span class="c1"># 구독자 수</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sub_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 구독하지 않을 경우 이모티콘에 지불한 금액</span>
+</span></span><span class="line"><span class="cl">        <span class="n">profit</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 각 사용자에 대해 할인율 경우의 수를 적용해 연산해 봄</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1"># 사용자 정보는 (구매할 할인율 기준, 자산)으로 구성됨</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dc_cut</span><span class="p">,</span> <span class="n">budget</span> <span class="o">=</span> <span class="n">user</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># 이모티콘을 구매할 경우, 할인율이 적용된 이모티콘에 지불한 총액</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum_cost</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 현재 사용자를 기준, 모든 이모티콘 금액을 순회</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">emo</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">              	<span class="c1"># 현재 고객의 할인 등급율보다 현재 할인율이 더 높다면</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 즉 구매 대상인 이모티콘이라면</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">dc_cut</span> <span class="o">&lt;=</span> <span class="n">dc_info</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                  	<span class="c1"># 누적 지출에 현재 할인된 이모티콘 구매 가격을 더해준다.</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sum_cost</span> <span class="o">+=</span> <span class="n">emo</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">emo</span> <span class="o">*</span> <span class="p">(</span><span class="n">dc_info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 누적 지출 금액이 자산 이상이 된다면</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 즉 구매를 포기하고 구독을 원하게 된다면</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">sum_cost</span> <span class="o">&gt;=</span> <span class="n">budget</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                  	<span class="c1"># 구독자 수를 하나 더해준다.</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sub_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 만약 무사히 순회가 종료됐다면</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 구독하지 않고 이모티콘을 구매하는 것이므로</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 지금 고객의 지출 금액을 전체 수익에 더해준다.</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">profit</span> <span class="o">+=</span> <span class="n">sum_cost</span>
+</span></span><span class="line"><span class="cl">                        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">sub_cnt</span><span class="p">,</span> <span class="n">profit</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                   
+</span></span><span class="line"><span class="cl">    <span class="c1"># 결과 = [구독자 수, 이모티콘 판매 이윤]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 이모티콘의 모든 할인율을 만드는 중복조합 만들기</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">recur_sale</span><span class="p">(</span><span class="n">my_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">my_arr</span> <span class="o">=</span> <span class="n">temp_arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">nonlocal</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 할인율이 완성되었다!</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">my_idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1"># 현재 할인율 정보(my_arr)로 이윤과 구독자 수를 구해보자!</span>
+</span></span><span class="line"><span class="cl">            <span class="n">crnt_result</span> <span class="o">=</span> <span class="n">cal</span><span class="p">(</span><span class="n">my_arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># 만약 현재 시행까지의 최대 구독자 수보다 지금 시행의 구독자 수가 더 많다면</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">crnt_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">              	<span class="c1"># 지금 시행이 정답에 가깝다.</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span> <span class="o">=</span> <span class="n">crnt_result</span><span class="p">[:]</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">            <span class="c1"># 구독자 수는 같은데, 이윤이 더 많다면</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">crnt_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">crnt_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                  	<span class="c1"># 정답의 조건에 맞는다.</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="n">crnt_result</span><span class="p">[:]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 위의 코드와 마찬가지로 중복조합 만들어주기</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="n">dc_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">my_arr</span><span class="p">[</span><span class="n">my_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">dc</span>
+</span></span><span class="line"><span class="cl">            <span class="n">recur_sale</span><span class="p">(</span><span class="n">my_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">my_arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 실제 시행</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recur_sale</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h4 id="2-product-사용하기">2. product 사용하기</h4>
+<p>파이썬의 product를 사용한다면 더 간편하게 문제를 해결할 수 있습니다.</p>
+<p>for 루프를 통해 product를 사용하는 방법은 다음과 같습니다. 수를 세는 경우의 값을 넣어주고, 해당 값이 총 몇 번 반복이 되는지는 repeat 옵션을 통해 넣어줍니다.</p>
+<p>가령 [10, 20, 30, 40]의 가지 수가 모두 3가지 경우가 하나 씩 값을 가질 때 <code>product([10, 20, 30, 40], repeat=3</code> 으로 표현해줍니다.</p>
+<p>product 관련 코드는 51번째 줄부터입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">emoticons</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  	<span class="c1"># 문제에서 주어진 할인율 조건 네 가지</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dc_rate</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 수많은 할인율의 경우의 수가 구현될 리스트의 초기 정보</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp_arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 주어진 할인율에 따라 계산하는 함수</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">cal</span><span class="p">(</span><span class="n">dc_info</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      	<span class="c1"># 구독자 수</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sub_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 구독하지 않을 경우 이모티콘에 지불한 금액</span>
+</span></span><span class="line"><span class="cl">        <span class="n">profit</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 각 사용자에 대해 할인율 경우의 수를 적용해 연산해 봄</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1"># 사용자 정보는 (구매할 할인율 기준, 자산)으로 구성됨</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dc_cut</span><span class="p">,</span> <span class="n">budget</span> <span class="o">=</span> <span class="n">user</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># 이모티콘을 구매할 경우, 할인율이 적용된 이모티콘에 지불한 총액</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum_cost</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 현재 사용자를 기준, 모든 이모티콘 금액을 순회</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">emo</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">emoticons</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">              	<span class="c1"># 현재 고객의 할인 등급율보다 현재 할인율이 더 높다면</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 즉 구매 대상인 이모티콘이라면</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">dc_cut</span> <span class="o">&lt;=</span> <span class="n">dc_info</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                  	<span class="c1"># 누적 지출에 현재 할인된 이모티콘 구매 가격을 더해준다.</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sum_cost</span> <span class="o">+=</span> <span class="n">emo</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">emo</span> <span class="o">*</span> <span class="p">(</span><span class="n">dc_info</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 누적 지출 금액이 자산 이상이 된다면</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 즉 구매를 포기하고 구독을 원하게 된다면</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">sum_cost</span> <span class="o">&gt;=</span> <span class="n">budget</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                  	<span class="c1"># 구독자 수를 하나 더해준다.</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sub_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 만약 무사히 순회가 종료됐다면</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 구독하지 않고 이모티콘을 구매하는 것이므로</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 지금 고객의 지출 금액을 전체 수익에 더해준다.</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">profit</span> <span class="o">+=</span> <span class="n">sum_cost</span>
+</span></span><span class="line"><span class="cl">                        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">sub_cnt</span><span class="p">,</span> <span class="n">profit</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                   
+</span></span><span class="line"><span class="cl">    <span class="c1"># 결과 = [구독자 수, 이모티콘 판매 이윤]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   	<span class="c1"># 아래와 같이 간단히 중복조합을 사용할 수 있습니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">dc_rate</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cnrt_result</span> <span class="o">=</span> <span class="n">cal</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sub_cnt</span><span class="p">,</span> <span class="n">profit</span> <span class="o">=</span> <span class="n">cnrt_result</span>
+</span></span><span class="line"><span class="cl">       
+</span></span><span class="line"><span class="cl">        <span class="c1"># 아래부터는 result를 판별하는 코드입니다.</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">sub_cnt</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="n">cnrt_result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">sub_cnt</span> <span class="o">==</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">profit</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span> <span class="o">=</span> <span class="n">cnrt_result</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<br></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-01-14</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">Javascript</a>,&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/coding-test/">Coding Test</a>,&nbsp;<a href="/tags/kakao/">Kakao</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" class="prev" rel="prev" title="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)"><i class="fas fa-angle-left fa-fw"></i>[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.98.0">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://caddyspoon.github.io" target="_blank" rel="noopener noreferrer">Caddyspoon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

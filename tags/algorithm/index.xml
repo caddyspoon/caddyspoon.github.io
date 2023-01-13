@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
     <channel>
-        <title>Javascript - Tag - Social&#43;DEV.</title>
-        <link>https://caddyspoon.github.io/tags/javascript/</link>
-        <description>Javascript - Tag - Social&#43;DEV.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Jan 2023 02:00:00 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+        <title>Algorithm - Tag - Social&#43;DEV.</title>
+        <link>https://caddyspoon.github.io/tags/algorithm/</link>
+        <description>Algorithm - Tag - Social&#43;DEV.</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Jan 2023 02:00:00 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
     <title>[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</title>
     <link>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/</link>
     <pubDate>Sat, 14 Jan 2023 02:00:00 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/</guid>
@@ -21,20 +21,5 @@
 제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲 저는 이렇게 짰다 정도로 포스팅하려고 합니다.
  문제 🚀개인정보 수집 유효기간  참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
  풀이 1번 문제로 자주 나오는 데이터 변환 문제입니다.]]></description>
-</item><item>
-    <title>[자료구조] Trie를 활용한 단어 색인과 자동완성 구현하기</title>
-    <link>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</link>
-    <pubDate>Mon, 30 May 2022 22:10:32 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0530_trie_autocomplete/</guid>
-    <description><![CDATA[입력 상자에 입력된 어절을 기반으로, 이전에 입력한 키워드를 자동으로 완성하는 방법을 알아봅니다. 자료구조 Trie을 통해 구현할 수 있죠.
- 제가 정말 잘 샀다 싶은 앱들이 몇 있는데요, 편한가계부 는 그 중 하나입니다. (iOS에서는) 문자를 기반으로 사용자의 결제 내역을 자동으로 저장해주고, 일정 기간별로 통계를 보여주어 지난 한 기간에서의 지출 내용을 통한 미래 지출 계획 설계, 자가 분석 (+ 반성) 등을 도와주는 앱입니다.
-그리고 각 결제 내역을 입력할 때 세부 내용을 입력할 수 있는데, 단어 조각을 입력하면 사용자가 과거에 입력했던 기록을 기반으로 입력할 내용을 찾아줍니다.]]></description>
-</item><item>
-    <title>[Javascript] 사용자의 입력 완료까지 기다리기 &#34;debouncing&#34;</title>
-    <link>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</link>
-    <pubDate>Tue, 24 May 2022 21:49:53 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2022/05/0520_debounce/</guid>
-    <description><![CDATA[사용자의 입력을 기다렸다가 완전히 입력이 종료되었다고 판단되면 입력을 받도록 합니다. 디바운싱을 활용해서요.
- 디바운싱이란? 사용자의 입력을 받아 처리해야 합니다. 단, 사용자의 모든 입력이 종료되었을 때만 입력을 받고 엔터 키를 누르는 등 입력이 종료되었다는 별도의 액션이 없습니다. 사용자의 입력이 완료 되었음을 어떻게 알고 처리할 수 있을까요?
-간단해보이지만 실제로 구현하고자 하면 생각보다 쉽지 않을 것입니다. 이러한 문제를 해결하기 위한 개념이 deboucing 입니다.
-디바운싱(debouncing)  기계식 스위치의 동작을 전기적 신호로 바꿀 때 생기는 진동 잡음을 제거하기 위하여 사용하는 하드웨어의 지연 회로, 소프트웨어의 적절한 지연 시간.]]></description>
 </item></channel>
 </rss>
