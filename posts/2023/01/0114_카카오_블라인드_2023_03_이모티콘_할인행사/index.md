@@ -11,7 +11,7 @@
 
 ## 문제
 
-#### [🚀이모티콘 할인행사](https://school.programmers.co.kr/learn/courses/30/lessons/150370)
+#### [🚀이모티콘 할인행사](https://school.programmers.co.kr/learn/courses/30/lessons/150368)
 
 *참고 링크 | [프로그래머스의 문제를 외부에 게시할 수 있나요?](https://programmers.zendesk.com/hc/ko/articles/360034546572-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%EC%9D%98-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%99%B8%EB%B6%80%EC%97%90-%EA%B2%8C%EC%8B%9C%ED%95%A0-%EC%88%98-%EC%9E%88%EB%82%98%EC%9A%94-)*
 
