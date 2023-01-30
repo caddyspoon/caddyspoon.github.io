@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/"
-        },"genre": "posts","keywords": "python, Algorithm, Coding Test, Kakao","wordcount":  1267 ,
+        },"genre": "posts","keywords": "python, Algorithm, Coding Test, Kakao","wordcount":  1271 ,
         "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/","datePublished": "2023-01-14T02:00:00+09:00","dateModified": "2023-01-14T02:00:00+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1267 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1271 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -159,7 +159,7 @@
 <h3 id="1-해결-아이디어">1. 해결 아이디어</h3>
 <h4 id="문제-해결-방법을-고민해보기">문제 해결 방법을 고민해보기</h4>
 <p>예전에는 코딩 테스트 문제를 풀 때 <code>그리디 하게 문제 해결이 가능한가?</code>를 먼저 생각했습니다. 그런데 그렇게 접근하는 것보다는 <code>완전탐색이 가능한가?</code>를 먼저 접근했을 때 더 빨리 문제 해결을 할 수 있었습니다. 탐색 시간을 생각해보고 안되겠다 싶으면 그리디한 문제 해결법을 찾는 순서로 문제를 해결하는 게 더 효율적일 때가 많더라고요.</p>
-<p>엄격하게 속도를 파악했을 때, 순수 파이썬은 1초에 1000만 루프의 일을 처리할 수 있다고 합니다. 그러니까 대략 1000만번 미만의 시행 횟수의 경우 무난하게 통과할 수 있다고 예측할 수 있겠습니다.</p>
+<p>엄격하게 속도를 파악했을 때, 순수 파이썬은 1초에 1000만 루프의 일을 처리할 수 있다고 합니다. 1초(=1,000ms)의 해결 시간이 주어지는 문제라면 1000만번 미만의 시행 횟수의 경우 통과할 수 있겠다고 예측하며 문제에 접근할 수 있겠습니다.</p>
 <p><em><strong>참고</strong> 파이썬의 처리 속도에 대한 아티클: <a href="https://peter-jp-xie.medium.com/how-slow-is-python-compared-to-c-3795071ce82a" target="_blank" rel="noopener noreferrer">How Slow is Python Compared to C. </a> (2020.07.13 작성)</em></p>
 <h4 id="시행횟수-짐작해보기">시행횟수 짐작해보기</h4>
 <p>완전 탐색으로 문제를 해결한다고 할 경우 문제의 핵심이 되는 경우의 수는 <code>이모티콘 할인</code>의 가짓 수입니다. 문제에 의하면 이모티콘은 반드시 할인 가격으로 판매되는데 할인율의 경우 [10%, 20%, 30%, 40%]의 총 네 가지입니다. 그리고 고객들은 판매되는 가격 기준으로 이모티콘을 구매할지, 이모티콘 플러스를 구독할지 결정합니다.</p>
