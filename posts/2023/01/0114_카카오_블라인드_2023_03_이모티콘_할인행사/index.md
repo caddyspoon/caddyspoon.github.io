@@ -5,7 +5,7 @@
 
 [프로그래머스](https://school.programmers.co.kr/)의 `2023 KAKAO BLIND RECRUITMENT` 문제팩 필터를 통해 찾아볼 수 있으며, [🚀여기](https://school.programmers.co.kr/learn/challenges?order=recent&page=1&partIds=37527)를 클릭하면 바로 이동할 수 있습니다.
 
-제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
 
 ---
 

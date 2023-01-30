@@ -8,9 +8,9 @@
         <title>[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python) - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)" />
 <meta property="og:description" content="첫 번째 문제에 이어 다음으로 이모티콘 할인행사 문제 코드를 올려보려고 합니다.
 프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
-제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
  문제 🚀이모티콘 할인행사 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
- 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?를 먼저 생각했습니다." />
+ 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-01-14T02:00:00+09:00" />
@@ -20,11 +20,11 @@
 <meta name="twitter:title" content="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)"/>
 <meta name="twitter:description" content="첫 번째 문제에 이어 다음으로 이모티콘 할인행사 문제 코드를 올려보려고 합니다.
 프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
-제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
  문제 🚀이모티콘 할인행사 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
- 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?를 먼저 생각했습니다."/>
+ 풀이 1. 해결 아이디어 문제 해결 방법을 고민해보기 예전에는 코딩 테스트 문제를 풀 때 그리디 하게 문제 해결이 가능한가?"/>
 <meta name="application-name" content="Social-Dev">
-<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" /><link rel="next" href="https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/"
-        },"genre": "posts","keywords": "JavaScript, Algorithm, Coding Test, Kakao","wordcount":  1260 ,
+        },"genre": "posts","keywords": "python, Algorithm, Coding Test, Kakao","wordcount":  1267 ,
         "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC\/","datePublished": "2023-01-14T02:00:00+09:00","dateModified": "2023-01-14T02:00:00+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1260 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1267 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -149,7 +149,7 @@
 </nav></div>
             </div><div class="content" id="content"><p>첫 번째 문제에 이어 다음으로 <code>이모티콘 할인행사</code> 문제 코드를 올려보려고 합니다.</p>
 <p><a href="https://school.programmers.co.kr/" target="_blank" rel="noopener noreferrer">프로그래머스</a>의 <code>2023 KAKAO BLIND RECRUITMENT</code> 문제팩 필터를 통해 찾아볼 수 있으며, <a href="https://school.programmers.co.kr/learn/challenges?order=recent&amp;page=1&amp;partIds=37527" target="_blank" rel="noopener noreferrer">🚀여기</a>를 클릭하면 바로 이동할 수 있습니다.</p>
-<p>제 코드는 가장 이상적이지 않고 잘 만들어지지도 않았습니다.🥲</p>
+<p>제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋</p>
 <hr>
 <h2 id="문제">문제</h2>
 <h4 id="이모티콘-할인행사httpsschoolprogrammerscokrlearncourses30lessons150368"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150368" target="_blank" rel="noopener noreferrer">🚀이모티콘 할인행사</a></h4>
@@ -532,13 +532,14 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">Javascript</a>,&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/coding-test/">Coding Test</a>,&nbsp;<a href="/tags/kakao/">Kakao</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">python</a>,&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/coding-test/">Coding Test</a>,&nbsp;<a href="/tags/kakao/">Kakao</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" class="prev" rel="prev" title="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)"><i class="fas fa-angle-left fa-fw"></i>[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)</a></div>
+    <div class="post-nav"><a href="/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_01_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%88%98%EC%A7%91_%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84/" class="prev" rel="prev" title="[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)"><i class="fas fa-angle-left fa-fw"></i>[카카오 블라인드 채용 코딩테스트 2023] 개인정보 수집 유효기간 (JavaScript)</a>
+            <a href="/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" class="next" rel="next" title="[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)">[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

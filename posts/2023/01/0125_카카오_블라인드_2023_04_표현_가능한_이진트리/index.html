@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python) - Social&#43;DEV.</title><meta name="description" content="Social&#43;DEV.. | 사회 개발"><meta property="og:title" content="[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)" />
+<meta property="og:description" content="표현 가능한 이진트리 문제를 풀어보려고 합니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
+ 문제 🚀표현 가능한 이진트리 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 탐색: 변환된 십진수는 어떻게 표현될까? 포화 이진트리는 각 높이에 모든 노드들이 빼곡히 들어선 피라미드 모양의 이진트리입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-25T23:57:31+09:00" />
+<meta property="article:modified_time" content="2023-01-25T23:57:31+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)"/>
+<meta name="twitter:description" content="표현 가능한 이진트리 문제를 풀어보려고 합니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
+ 문제 🚀표현 가능한 이진트리 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 탐색: 변환된 십진수는 어떻게 표현될까? 포화 이진트리는 각 높이에 모든 노드들이 빼곡히 들어선 피라미드 모양의 이진트리입니다."/>
+<meta name="application-name" content="Social-Dev">
+<meta name="apple-mobile-web-app-title" content="Social-Dev"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" /><link rel="prev" href="https://caddyspoon.github.io/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC\/"
+        },"genre": "posts","keywords": "python, Algorithm, Coding Test, Kakao","wordcount":  1657 ,
+        "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC\/","datePublished": "2023-01-25T23:57:31+09:00","dateModified": "2023-01-25T23:57:31+09:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caddyspoon"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">('true' === 'true' && window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Social&#43;DEV.">사회개발.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Social&#43;DEV.."> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Social&#43;DEV.">사회개발.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Social&#43;DEV..">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/caddyspoon" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1657 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#문제">문제</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#표현-가능한-이진트리httpsschoolprogrammerscokrlearncourses30lessons150367"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150367">🚀표현 가능한 이진트리</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#풀이">풀이</a>
+      <ul>
+        <li><a href="#1-해결-아이디어">1. 해결 아이디어</a>
+          <ul>
+            <li><a href="#탐색-변환된-십진수는-어떻게-표현될까">탐색: 변환된 십진수는 어떻게 표현될까?</a></li>
+            <li><a href="#발견-포화-이진-트리로-표현하기">발견: 포화 이진 트리로 표현하기</a></li>
+            <li><a href="#통합-가공한-자료를-통해-문제-해결하기">통합: 가공한 자료를 통해 문제 해결하기</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-코드">2. 코드</a>
+          <ul>
+            <li><a href="#1-십진수를-이진수로-변환하기">1. 십진수를 이진수로 변환하기</a></li>
+            <li><a href="#2-이진트리-표현수가-유효한-트리-표현-방식인지-판별">2. 이진트리 표현수가 유효한 트리 표현 방식인지 판별</a></li>
+            <li><a href="#문제-해결-코드">문제 해결 코드</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><code>표현 가능한 이진트리</code> 문제를 풀어보려고 합니다.</p>
+<p><a href="https://school.programmers.co.kr/" target="_blank" rel="noopener noreferrer">프로그래머스</a>의 <code>2023 KAKAO BLIND RECRUITMENT</code> 문제팩 필터를 통해 찾아볼 수 있으며, <a href="https://school.programmers.co.kr/learn/challenges?order=recent&amp;page=1&amp;partIds=37527" target="_blank" rel="noopener noreferrer">🚀여기</a>를 클릭하면 바로 이동할 수 있습니다.</p>
+<p>제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋</p>
+<hr>
+<h2 id="문제">문제</h2>
+<h4 id="표현-가능한-이진트리httpsschoolprogrammerscokrlearncourses30lessons150367"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/150367" target="_blank" rel="noopener noreferrer">🚀표현 가능한 이진트리</a></h4>
+<p><em>참고 링크 | <a href="https://programmers.zendesk.com/hc/ko/articles/360034546572-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%EC%9D%98-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%99%B8%EB%B6%80%EC%97%90-%EA%B2%8C%EC%8B%9C%ED%95%A0-%EC%88%98-%EC%9E%88%EB%82%98%EC%9A%94-" target="_blank" rel="noopener noreferrer">프로그래머스의 문제를 외부에 게시할 수 있나요?</a></em></p>
+<hr>
+<h2 id="풀이">풀이</h2>
+<h3 id="1-해결-아이디어">1. 해결 아이디어</h3>
+<h4 id="탐색-변환된-십진수는-어떻게-표현될까">탐색: 변환된 십진수는 어떻게 표현될까?</h4>
+<p>포화 이진트리는 각 높이에 모든 노드들이 빼곡히 들어선 피라미드 모양의 이진트리입니다. 문제에서는 이진수로 표현된 이진트리의 경우, 비어있는 노드는 0으로, 실제 존재하는 노드는 1로 표기하고 있음을 밝히고 있습니다.</p>
+<p>문제에서 주어진 <code>numbers</code> 배열의 숫자의 경우 이진수로 변환했을 때, 앞 자리에 얼마 만큼의 0이 존재하는지 알 수 없습니다.</p>
+<p>문제에서 예시로 든 42를 예로 들어볼까요? 42를 이진수로 표현하면 <strong>101010</strong>입니다. 해당 수는 이진트리로 표현할 수 있다는 것을 문제에서 알려주고 있고 그 형태는 다음과 같습니다.</p>
+<figure><img src="MD_imgs/01_%ec%a0%9c%ec%9d%bc_%ec%9e%91%ec%9d%80_%ed%8a%b8%eb%a6%ac.png"/><figcaption>
+            <h4>111의 트리</h4>
+        </figcaption>
+</figure>
+
+<p>노드의 형태를 보고 직관적으로 이진수로 표현하면 <strong>111</strong>로 나타나는 트리입니다. 10진수로 나타내면 7에 해당하는 트리네요.</p>
+<p>다시 42, 이진수 101010으로 돌아와 생각해 보겠습니다. 42는 이진트리로 나타낼 경우에 <strong>0101010</strong>이며 그림으로 나타나면 다음과 같이 나타낼 수 있습니다.</p>
+<figure><img src="MD_imgs/02_42%ec%9d%98%20%ed%8a%b8%eb%a6%ac.png"/>
+</figure>
+
+<p>손으로 그렸는데 깔끔하지 않게 됐어요. 그래서 귀엽기라도 해보자했습니다. 나쁘지 않네요. 낫 밷.</p>
+<p>회색 웃는 점들이 비어있는 노드들입니다. 그림처럼 비어있는 노드를 추가하니 <strong>111</strong>로만 표현될 것만 같았던 트리가 다른 방식으로도 표현됐습니다. 지금은 <strong>0101010</strong>이네요. 네, 우리에게 익숙한 10진수로는 <strong>42</strong>입니다. 우주의 진리인 수인 만큼 트리 모양도 아름답네요.</p>
+<p>여기에 빈 노드들로만 이루어진 한 층을 추가해도 트리가 만들 수 있지 않을까요? 자유민주주의 대한민국에서 안될 것 없죠. 해보죠, 까짓 거.</p>
+<figure><img src="MD_imgs/03_%ec%b6%94%ea%b0%80%20%ed%8a%b8%eb%a6%ac.png"/>
+</figure>
+
+<p>이렇게 만들어진 트리는 <strong>000100010001000</strong>으로 나타낼 수 있습니다. 십진수로는 <strong>2184</strong>에 해당하는 숫자입니다. 이를 통해 우리가 알 수 있는 것은, <strong>같은 모양의 트리도 다른 수를 나타낼 수 있다</strong>는 것입니다. 여기서 하나의 의문이 생기는데요, &lsquo;&rsquo;<strong>그렇다면 이진수로 변환된 수의 앞에 몇 개의 0을 붙여야 비어있는 노드가 포함된 트리 표현수가 될까?</strong>&lsquo;입니다.</p>
+<br>
+<h4 id="발견-포화-이진-트리로-표현하기">발견: 포화 이진 트리로 표현하기</h4>
+<p>위의 시행에서 알아낸 사실이 있습니다. 이진수로 표현된 해당 십진수를 트리로 그리게 되면 그 형태는 포화 이진 트리로 만들어진다는 사실이죠. 해당 형태의 포화 이진 트리를 만들고, 비어있는 자식 노드를 0으로 바꾸게 되면 해당 숫자를 알아낼 수 있습니다.</p>
+<p>달리 생각하면, 포화 이진트리를 통해 비어있는 노드가 포함된 트리를 구성할 수 있고, 이진수에서 가장 앞자리에 등장하는 1 앞에 등장하는 0의 갯수도 알 수 있다는 의미이죠.</p>
+<figure><img src="MD_imgs/04_%ed%8f%ac%ed%99%94%20%ec%9d%b4%ec%a7%84%20%ed%8a%b8%eb%a6%ac.png"/>
+</figure>
+
+<p>다음의 이진 트리는 <strong>1111111</strong>입니다. 42의 이진트리 표현 수인 <strong>0101010</strong>에서 비어있던 모든 노드를 채워놓은 형태로 볼 수 있겠네요. 42는 101010으로 바꾸어지며 여섯 자리의 2진수로 나타나게 된다는 것을 알 수 있습니다. 3층 짜리 이진 포화트리에서 뭔가가 부족한 트리라는 것을 우리는 확인할 수 있었죠.</p>
+<p>이와 같이 십진수의 해당 숫자를 2진수로 바꾸면 <code>지금 몇 개의 노드로 이루어진 트리</code>인지 알 수 있게 되고, 해당 노드 갯수보다 큰 포화이진트리 중에 가장 가까운 포화이진트리가 목표 숫자의 형태로 만들 수 있는 포화 이진 트리임을 알 수 있습니다.</p>
+<p>그럼 가장 <code>가까운 포화 이진 트리</code>는 어떻게 알 수 있을까요? 그건 지금까지 직접 그려본 결과 노드의 숫자를 보면 알 수 있었죠. 그리고 포화 이진 트리는 높이 h에 대해 2^(h + 1) - 1개의 노드 갯수를 가집니다. 2층 짜리 포화 이진 트리는 3개, 3층 짜리 포화 이진 트리는 7개, &hellip; 5층 짜리 이진트리는 63개의 노드 갯수를 가지게 될 것입니다.</p>
+<blockquote>
+<p><strong>포화</strong> 정 이진 트리에서, <img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c75a8ef2ff68abf9711a5952953e0ee7ab98284"
+        data-srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c75a8ef2ff68abf9711a5952953e0ee7ab98284, https://wikimedia.org/api/rest_v1/media/math/render/svg/0c75a8ef2ff68abf9711a5952953e0ee7ab98284 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/0c75a8ef2ff68abf9711a5952953e0ee7ab98284 2x"
+        data-sizes="auto"
+        alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c75a8ef2ff68abf9711a5952953e0ee7ab98284"
+        title="{\displaystyle l=2^{h}}" />다. 따라서, <img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3558d5feb47029b11259917bbb81b6c14a5da484"
+        data-srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/3558d5feb47029b11259917bbb81b6c14a5da484, https://wikimedia.org/api/rest_v1/media/math/render/svg/3558d5feb47029b11259917bbb81b6c14a5da484 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/3558d5feb47029b11259917bbb81b6c14a5da484 2x"
+        data-sizes="auto"
+        alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/3558d5feb47029b11259917bbb81b6c14a5da484"
+        title="{\displaystyle n=2^{h&#43;1}-1}" />이다. <em>(l은 리프 노드의 갯수를 의미한다.)</em></p>
+<p><em>출처: <a href="https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%ED%8A%B8%EB%A6%AC#%EC%9D%B4%EC%A7%84_%ED%8A%B8%EB%A6%AC%EC%9D%98_%EC%86%8D%EC%84%B1" target="_blank" rel="noopener noreferrer">위키피디아, &ldquo;이진 트리&rdquo;</a></em></p>
+</blockquote>
+<p>지금까지 예를 들었던 42로 다시 이 과정을 정리하면</p>
+<p><code>42로 이진트리를 만들 수 있을까? -&gt; 이진수로 변환해보자 -&gt; 101010이란 값을 얻었다! -&gt; 현재 노드의 갯수는 6개, 1앞에 필요한 0의 갯수? -&gt; 가장 가까운 포화 이진 트리의 노드 갯수를 통해 알 수 있었지 -&gt; 42의 노드 갯수 6은 3(= 2^2 - 1)보다는 크지만 7(= 2^3 - 1) 보다는 작다! -&gt; 즉 7개 노드로 이루어진 포화 이진 트리 1111111이 42가 그려질 트리의 형태이고 노드 한 개가 부족하니까 42는 0101010으로 나타낼 수 있다! </code></p>
+<p>다음과 같은 과정을 통해 0까지 포함된, 즉 비어있는 노드까지 포함된 42가 나타낼 이진 트리의 형태를 알아낼 수 있습니다.</p>
+<br>
+<h4 id="통합-가공한-자료를-통해-문제-해결하기">통합: 가공한 자료를 통해 문제 해결하기</h4>
+<p>자 이제 십진수를 0까지 포함된 트리 표현식으로 해결할 수 있으니, 문제를 해결할 수 있습니다.</p>
+<p>이제 주어진 이진 표현식으로 판별만 하면 되는데, 해당 트리 표현수가 실제 유효한 트리인 것은 어떻게 알 수 있을까요?</p>
+<p>간단합니다. 예시에서 나타났듯, 자식 노드가 부모 노드가 존재할 때 존재하면 됩니다. 그림으로 나타내면 간단한 이야기입니다.</p>
+<p>가령 5, 이진수로 나타냈을 때 101은 이진 트리로 나타낼 수 없습니다.</p>
+<figure><img src="MD_imgs/05_%eb%b6%88%ea%b0%80%eb%8a%a5%20%ed%8a%b8%eb%a6%ac.png"
+         alt="트리가 가내수공업이라 좀 찌그러졌는데 이해해주세요.😘" width="300px"/><figcaption>
+            <p>트리가 가내수공업이라 좀 찌그러졌는데 이해해주세요.😘</p>
+        </figcaption>
+</figure>
+
+<p>다음과 같이 부모는 없지만 자식이 있는 형태이기 때문입니다. 부모 없는 자식이 있을 수 없죠. 뭔가 패륜적 언사 같은데 오해하지 말고 들어주세요. 트리는 부모가 있어야 자식이 존재할 수 있습니다. 따라서 부모 노드 없는 자식노드로 이루어진 트리란 존재할 수 없습니다. 101로 나타내는 트리 형태는 부모 없이 자식들로만 이루어진 트리이기 때문에 존재할 수 없습니다.</p>
+<p>자 그럼 이런 형태인지 아닌지만 판별해주면 되겠네요. 어떻게 하면 될까요? 바로 이 작업을 해주기 위해 0이 표시된 정 이진 트리로 만들기 위해 애썼던 것이죠.</p>
+<p>다시 42를 가져와서 설명을 하자면, 현재 트리의 최상단 노드, 즉 <strong>루트 노드는 트리 표현수의 가장 중앙에 위치하는 수</strong>입니다. 0101010에서 루트노드는 네 번째 1입니다. 010<strong>1</strong>010에서의 까맣게 칠해진 1이죠. 이와 같은 작업을 반복해줍니다. 0101010에서 가장 루트 노드 1(010<strong>1</strong>010)은 부모와 자식이 이루어지는 = 자식이 있으며 부모가 존재하는 노드입니다.</p>
+<figure><img src="MD_imgs/06_%ec%9e%ac%ea%b7%80%ed%8a%b8%eb%a6%ac1.png"/>
+</figure>
+
+<p>그림에서 보여주는 빨간색 부분이 트리가 가능함을 확인했고, 그 아래 존재하는 노란 자식들이 부모가 존재하는, 존재할 수 있는 트리임을 확인했습니다. 이것을 반복해줍니다.</p>
+<p>이제 <code>010 [1] 010</code>으로 쪼개어, 자식 트리들도 트리로 만들어지는 봅니다. <code>010 [1] 010</code>에서 [1] 왼쪽의 010은 아래 그림의 A트리가 될 것이고, 오른쪽 010은 B 트리가 될 것입니다.</p>
+<figure><img src="MD_imgs/07_%ec%9e%ac%ea%b7%80%ed%8a%b8%eb%a6%ac2.png"/>
+</figure>
+
+<p>공교롭게도 두 자식 트리 모두 010이네요. 부모가 존재하고 자식이 비어있는 구조입니다. 자식은 비어있어도 상관없습니다. 부모가 있다면 말이지요.</p>
+<p>하지만 반대로 부모가 존재하지 않는데, 자식이 존재하면 안됩니다. 101(=십진수 5)와 같은 형태가 있으면 안되죠.</p>
+<p>따라서 순차적으로 해당 이진트리를 표현하는 수의 중앙이 1이며, 자식 트리를 분리한 뒤 자식 트리를 다시 부모노드가 존재하는 트리인지 판별하는 과정을 반복해주면 됩니다. 또, 부모노드가 존재하지 않는데 자식 노드가 존재하는지 확인을 해주면 되겠습니다. 리프 노드에 닿을 때까지요. 전형적인 분할정복 방식의 코드가 될 것 같네요.</p>
+<hr>
+<br>
+<h3 id="2-코드">2. 코드</h3>
+<h4 id="1-십진수를-이진수로-변환하기">1. 십진수를 이진수로 변환하기</h4>
+<p>위에서 이야기한대로 코드를 짜보겠습니다. 다음 함수는 십진수를 비어있는 0까지 모두 표현된 이진수(: sting)를 반환할 것입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 현재 수 이진 값으로 만들기</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">conv_to_bintree</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 이진 값으로 변환된 수</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_num</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">num</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 노드개수</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 가장 가까운 포화 이진 트리 찾기</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  	<span class="c1"># 다음은 2의 지수가 될 변수</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># &#39;exp&#39; stands for exponential</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># (2의 제곱수 - 1)는 이진트리로 변환 했을 때 포화 이진 트리가 된다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 가령 (2**2 - 1 = 3)의 경우 2층 포화 이진 트리, (2**3 - 1 = 7)의 경우 3층 포화 이진 트리가 된다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 그러므로 현재 값보다 큰 가장 가까운 2의 제곱수로 만든 이진트리가 자식 노드가 몇 개 비워진 이진트리가 된다.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 값을 넘는 가장 가까운 2의 제곱 수인 경우</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node_cnt</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">exp</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 비어진 말단 최하단이자 최좌단의 노드 경우 0을 채워준다.</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># .zfill()의 자세한 설명은 아래 링크에</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">target_num</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">exp</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 목표가 되는 수가 2**지수 보다 작을 경우 지수를 하나 더해줌</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">exp</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>참고) <a href="https://docs.python.org/3/library/stdtypes.html?highlight=zfill#str.zfill" target="_blank" rel="noopener noreferrer">자릿수에 맞게 string에 0 채우는 메소드; str.zfill()</a></em></p>
+<br>
+<h4 id="2-이진트리-표현수가-유효한-트리-표현-방식인지-판별">2. 이진트리 표현수가 유효한 트리 표현 방식인지 판별</h4>
+<p>이제 이진수로 표현된 수를 가지고 유효한 트리로 만들어지는 확인해봅시다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">verdict</span><span class="p">(</span><span class="n">target_num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_num</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 노드의 길이가 2보다 작으면 리프 노드</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 이진수로 표현된 트리의 가운데 값이 최상단 부모 노드</span>
+</span></span><span class="line"><span class="cl">        <span class="n">parent_node</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 부모노드가 0인데 자식노드가 존재하는 경우 -&gt; 트리로 표현되지 않는 표현식</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 따라서 이진 트리로 만들 수 없다고 판별하여 0을 반환</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">parent_node</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span> <span class="ow">and</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 이진트리를 반으로 쪼개서 왼쪽 트리를 스택에 넣기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">[:</span><span class="n">parent_node</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 오른쪽 트리를 스택에 넣기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">parent_node</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 순회가 끝난 경우 완성할 수 있는 트리이므로 1을 반환</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>다음의 큰 두 가지 아이디어로 해결할 수 있는 문제였습니다. 전체 코드를 구성하면 다음과 같습니다.</p>
+<br>
+<h4 id="문제-해결-코드">문제 해결 코드</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 현재 수 이진 값으로 만들기</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">conv_to_bintree</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 이진 값으로 변환된 수</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_num</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">num</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 노드개수</span>
+</span></span><span class="line"><span class="cl">    <span class="n">node_cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 가장 가까운 포화 이진 트리 찾기</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  	<span class="c1"># 다음은 2의 지수가 될 변수</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># &#39;exp&#39; stands for exponential</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># (2의 제곱수 - 1)는 이진트리로 변환 했을 때 포화 이진 트리가 된다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 가령 (2**2 - 1 = 3)의 경우 2층 포화 이진 트리, (2**3 - 1 = 7)의 경우 3층 포화 이진 트리가 된다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 그러므로 현재 값보다 큰 가장 가까운 2의 제곱수로 만든 이진트리가 자식 노드가 몇 개 비워진 이진트리가 된다.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 값을 넘는 가장 가까운 2의 제곱 수인 경우</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node_cnt</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">exp</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 비어진 말단 최하단이자 최좌단의 노드 경우 0을 채워준다.</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">target_num</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">exp</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 목표가 되는 수가 2**지수 보다 작을 경우 지수를 하나 더해줌</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">exp</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">verdict</span><span class="p">(</span><span class="n">target_num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_num</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 노드의 길이가 2보다 작으면 리프 노드</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 이진수로 표현된 트리의 가운데 값이 최상단 부모 노드</span>
+</span></span><span class="line"><span class="cl">        <span class="n">parent_node</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 부모노드가 0인데 자식노드가 존재하는 경우 -&gt; 트리로 표현되지 않는 표현식</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 따라서 이진 트리로 만들 수 없다고 판별하여 0을 반환</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">parent_node</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span> <span class="ow">and</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 이진트리를 반으로 쪼개서 왼쪽 트리를 스택에 넣기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">[:</span><span class="n">parent_node</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 오른쪽 트리를 스택에 넣기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">parent_node</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 순회가 끝난 경우 완성할 수 있는 트리이므로 1을 반환</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 현재 숫자들의 이진 값들이 담길 리스트</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bin_nums</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 현재 수를 이진수로 변환하기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bin_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conv_to_bintree</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">bin_num</span> <span class="ow">in</span> <span class="n">bin_nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 변환된 수를 이진트리로 만들 수 있는지 확인하기</span>
+</span></span><span class="line"><span class="cl">        <span class="n">answer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">verdict</span><span class="p">(</span><span class="n">bin_num</span><span class="p">))</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>&lsquo;이렇게하면 이렇게 되나&hellip;?&rsquo;&rsquo; 하고, 손으로 그려가며 풀어본 문제였습니다. 복잡할 것 같은 문제도 코드로 적어내면 막상 길지 않은 경우가 있는데, 이 문제도 그런 경우였네요.</p>
+<p>이번 문제는 이렇게 마무리하고 다음에는 제가 <code>2023 KAKAO BLIND RECRUITMENT</code>에서 풀면서 가장 재밌었던 <code>표 병합</code>의 해결 방법을 기록해보겠습니다.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-01-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="Share on Blogger" data-sharer="blogger" data-url="https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/" data-title="[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)" data-description=""><i class="fab fa-blogger fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">python</a>,&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/coding-test/">Coding Test</a>,&nbsp;<a href="/tags/kakao/">Kakao</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/01/0114_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_03_%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98_%ED%95%A0%EC%9D%B8%ED%96%89%EC%82%AC/" class="prev" rel="prev" title="[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)"><i class="fas fa-angle-left fa-fw"></i>[카카오 블라인드 채용 코딩테스트 2023] 이모티콘 할인행사 (Python)</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.98.0">Hugo</a> | Theme - <a href="https://github.com/sunt-programator/CodeIT" target="_blank" rel="noopener noreferrer" title="CodeIT 0.2.10"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://caddyspoon.github.io" target="_blank" rel="noopener noreferrer">Caddyspoon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
