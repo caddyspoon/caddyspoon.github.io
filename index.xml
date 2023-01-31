@@ -3,9 +3,18 @@
         <title>Social&#43;DEV.</title>
         <link>https://caddyspoon.github.io/</link>
         <description>Social&#43;DEV.. | 사회 개발</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 25 Jan 2023 23:57:31 &#43;0900</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 31 Jan 2023 22:18:02 &#43;0900</lastBuildDate>
             <atom:link href="https://caddyspoon.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>[카카오 블라인드 채용 코딩테스트 2023] 표 병합 (Python)</title>
+    <link>https://caddyspoon.github.io/posts/2023/01/0131_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_05_%ED%91%9C_%EB%B3%91%ED%95%A9/</link>
+    <pubDate>Tue, 31 Jan 2023 22:18:02 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2023/01/0131_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_05_%ED%91%9C_%EB%B3%91%ED%95%A9/</guid>
+    <description><![CDATA[표 병합 문제를 풀어보려고 합니다. 개인적으로는 2023 카카오 문제팩에서 제일 재미있게 해결한 문제입니다.
+프로그래머스의 2023 KAKAO BLIND RECRUITMENT 문제팩 필터를 통해 찾아볼 수 있으며, 🚀여기를 클릭하면 바로 이동할 수 있습니다.
+제 코드는 가장 이상적인 해법이 아닙니다. 다만 저의 생각과 코드 작성의 방식을 공유하고자 글을 작성해봅니다.😋
+ 문제 🚀표 병합 참고 링크 | 프로그래머스의 문제를 외부에 게시할 수 있나요?
+ 풀이 1. 해결 아이디어 주어진 대로 구현해보기 입력 값과 명령어를 주고 이를 수행할 수 있도록 하는 프로그램을 만드는 문제입니다.]]></description>
+</item><item>
     <title>[카카오 블라인드 채용 코딩테스트 2023] 표현 가능한 이진트리 (Python)</title>
     <link>https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/</link>
     <pubDate>Wed, 25 Jan 2023 23:57:31 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2023/01/0125_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_04_%ED%91%9C%ED%98%84_%EA%B0%80%EB%8A%A5%ED%95%9C_%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC/</guid>
