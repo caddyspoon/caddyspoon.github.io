@@ -60,7 +60,7 @@ MERGE는 다른 두 셀을 병합합니다. 주의사항은 문제에서의 예�
 4. value1 미존재, value2 존재
    - 값이 존재하는 value2의 값을 병합한 셀들에게 넣어줍니다.
 
-정리하자면 네 가지의 케이스 중 4번 케이스를 제외하면 value1의 각 셀들에 넣어주면 되겠네요. 즉, value2의 값이 있고 value1의 값이 없을 때만 value2의 값을 넣어주는 분기 처리를 해주고 그 이외에는 모두 value1을 넣어주도록 하겠습니다.
+정리하자면 네 가지의 케이스 중 4번 케이스를 제외하면 value1의 값을 각 셀들에 넣어주면 되겠네요. 즉, value2의 값이 있고 value1의 값이 없을 때만 value2의 값을 넣어주는 분기 처리를 해주고 그 이외에는 모두 value1을 넣어주도록 하겠습니다.
 
 다시 어떻게 셀들을 병합할까에 대한 고민으로 돌아가 볼까요? MERGE된 셀들의 핵심은 하나의 셀이 변경되어도, 병합된 셀들의 값이 역시 변경되는 점이죠. 이 부분은 간단히 해결할 수 있습니다. 각 셀들의 값들을 참조형으로 만들면 됩니다.
 
@@ -193,11 +193,9 @@ print(b_list[0])
 
 ```python
 # table은 표, com은 commands를 공백 기준으로 split하여 만든 리스트입니다.
-# com = commands_리스트_원소.split(" ")
+# com = commands_리스트_원소.split(" ")[1:]
+# 따라서 com은 "UPDATE"와 같은 명령어 키워드를 제외한 명령값입니다.
 def update_cells(table, com):
-	# 명령어의 첫 번째 코드는 UPDATE와 같은 명령 STRING
-  	# 이 안에 들어온 이상 필요 없으므로 슬라이싱으로 빼줍니다.
-    com = com[1:]
     
     # 특정 값을 해당 칸에 지정하는 경우
     if len(com) == 3:
@@ -226,7 +224,7 @@ def update_cells(table, com):
 
 ```python
 def merge_cells(table, com):
-    r1, c1, r2, c2 = map(int, com[1:])  
+    r1, c1, r2, c2 = map(int, com)  
     
     # 두 셀이 같은 칸이면 아무 것도 하지 않는다는 문제 조건
     if r1 == r2 and c1 == c2:
@@ -238,6 +236,7 @@ def merge_cells(table, com):
     cell2 = table[r2][c2]
 
     # 각 셀은 리스트이므로, [0]으로 지정해줘야 해당 값이 지정됩니다.
+    # 따라서 각 값들은 "rice", "korean"과 같은 실제 값이 됩니다.
     v1 = cell1[0]
     v2 = cell2[0]
 
@@ -266,7 +265,7 @@ def merge_cells(table, com):
 
 ```python
 def unmerge_cells(table, com):
-    r, c = map(int, com[1:])
+    r, c = map(int, com)
 
     value = table[r][c][0]
     # (r, c)칸과 같은 id 값을 가진 칸 = 병합된 칸을 찾기 위한 id
@@ -294,11 +293,9 @@ def unmerge_cells(table, com):
 
 ```python
 # table은 표, com은 commands를 공백 기준으로 split하여 만든 리스트입니다.
-# com = commands_리스트_원소.split(" ")
+# com = commands_리스트_원소.split(" ")[1:]
+# 따라서 com은 "UPDATE"와 같은 명령어 키워드를 제외한 명령 정보를 담은 값입니다.
 def update_cells(table, com):
-	# 명령어의 첫 번째 코드는 UPDATE와 같은 명령 STRING
-  	# 이 안에 들어온 이상 필요 없으므로 슬라이싱으로 빼줍니다.
-    com = com[1:]
     
     # 특정 값을 해당 칸에 지정하는 경우
     if len(com) == 3:
@@ -320,7 +317,7 @@ def update_cells(table, com):
 
         
 def merge_cells(table, com):
-    r1, c1, r2, c2 = map(int, com[1:])  
+    r1, c1, r2, c2 = map(int, com)  
     
     # 두 셀이 같은 칸이면 아무 것도 하지 않는다는 문제 조건
     if r1 == r2 and c1 == c2:
@@ -332,12 +329,13 @@ def merge_cells(table, com):
     cell2 = table[r2][c2]
 
     # 각 셀은 리스트이므로, [0]으로 지정해줘야 해당 값이 지정됩니다.
+    # 따라서 각 값들은 "rice", "korean"과 같은 실제 값이 됩니다.
     v1 = cell1[0]
     v2 = cell2[0]
 
     # 위에서 이야기한 네 번째 경우의 수에만 value2를 value1으로 지정할 수 있습니다.
     # parent_cell은 값을 전달하는 셀, child_cell은 부모의 값을 부여받는 셀입니다.
-    # 자식 칸의 주소값으로 대상이 될 자식들을 찾습니다.
+    # 자식 칸의 아이디로 대상이 될 자식들을 찾읍시다.
     if v2 and not v1:
         child_id = id(cell1)
         parent_cell = cell2
@@ -353,7 +351,7 @@ def merge_cells(table, com):
 
                 
 def unmerge_cells(table, com):
-    r, c = map(int, com[1:])
+    r, c = map(int, com)
 
     value = table[r][c][0]
     # (r, c)칸과 같은 id 값을 가진 칸 = 병합된 칸을 찾기 위한 id
@@ -376,17 +374,16 @@ def unmerge_cells(table, com):
 # 값이 있는 칸은 잘 출력해줍니다.
 # 없으면 'EMPTY'를 출력합니다.
 def print_cells(table, com):
-    r, c = map(int, com[1:])
+    r, c = map(int, com)
 
-    if table[r][c][0]:
-        return table[r][c][0]
-    else:
-        return 'EMPTY'
+    # table[r][c][0]에 값이 있으면 해당 값을, 아니면 "EMPTY"를 반환합니다.
+    return table[r][c][0] or 'EMPTY'
 
 
-# 명령어에 따라 시행을 정해주는 함수
-def commit_commands(com, table, answer = []):
-    command = com[0]
+# 명령어에 따라 실행 명령 종류를 정해주는 함수
+def commit_commands(com_tokens_list, table, answer = []):
+    command = com_tokens_list[0]
+    com = com_tokens_list[1:]
     
     if command == "UPDATE":
         update_cells(table, com)
@@ -408,8 +405,8 @@ def solution(commands):
     for raw_com in commands:
       	# 명령어는 하나의 스트링으로 이루어져 있고, 문장 내 구분자가 공백이기 때문에
         # 각 명령어 토큰을 다음과 같이 분리합니다.
-        com = raw_com.split(" ")        
-        answer = commit_commands(com, table)
+        com_tokens_list = raw_com.split(" ")
+        answer = commit_commands(com_tokens_list, table)
 
     return answer
 

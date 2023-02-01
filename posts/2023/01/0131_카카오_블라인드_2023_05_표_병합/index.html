@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0131_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_05_%ED%91%9C_%EB%B3%91%ED%95%A9\/"
-        },"genre": "posts","keywords": "Python, Algorithm, Coding Test, Kakao","wordcount":  2070 ,
+        },"genre": "posts","keywords": "Python, Algorithm, Coding Test, Kakao","wordcount":  2078 ,
         "url": "https:\/\/caddyspoon.github.io\/posts\/2023\/01\/0131_%EC%B9%B4%EC%B9%B4%EC%98%A4_%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C_2023_05_%ED%91%9C_%EB%B3%91%ED%95%A9\/","datePublished": "2023-01-31T22:18:02+09:00","dateModified": "2023-01-31T22:18:02+09:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">[카카오 블라인드 채용 코딩테스트 2023] 표 병합 (Python)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://caddyspoon.github.io" title="Author" target="_blank" rel="noopener noreferrer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Caddyspoon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/dev/"><i class="far fa-folder fa-fw"></i>Dev</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-31">2023-01-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2070 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-31">2023-01-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2078 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -212,7 +212,7 @@
 </ul>
 </li>
 </ol>
-<p>정리하자면 네 가지의 케이스 중 4번 케이스를 제외하면 value1의 각 셀들에 넣어주면 되겠네요. 즉, value2의 값이 있고 value1의 값이 없을 때만 value2의 값을 넣어주는 분기 처리를 해주고 그 이외에는 모두 value1을 넣어주도록 하겠습니다.</p>
+<p>정리하자면 네 가지의 케이스 중 4번 케이스를 제외하면 value1의 값을 각 셀들에 넣어주면 되겠네요. 즉, value2의 값이 있고 value1의 값이 없을 때만 value2의 값을 넣어주는 분기 처리를 해주고 그 이외에는 모두 value1을 넣어주도록 하겠습니다.</p>
 <p>다시 어떻게 셀들을 병합할까에 대한 고민으로 돌아가 볼까요? MERGE된 셀들의 핵심은 하나의 셀이 변경되어도, 병합된 셀들의 값이 역시 변경되는 점이죠. 이 부분은 간단히 해결할 수 있습니다. 각 셀들의 값들을 참조형으로 만들면 됩니다.</p>
 <p>표를 만들 때</p>
 <div class="highlight"><div class="chroma">
@@ -383,16 +383,12 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># table은 표, com은 commands를 공백 기준으로 split하여 만든 리스트입니다.</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># com = commands_리스트_원소.split(&#34; &#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># com = commands_리스트_원소.split(&#34; &#34;)[1:]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 따라서 com은 &#34;UPDATE&#34;와 같은 명령어 키워드를 제외한 명령값입니다.</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">update_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="c1"># 명령어의 첫 번째 코드는 UPDATE와 같은 명령 STRING</span>
-</span></span><span class="line"><span class="cl">  	<span class="c1"># 이 안에 들어온 이상 필요 없으므로 슬라이싱으로 빼줍니다.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">com</span> <span class="o">=</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1"># 특정 값을 해당 칸에 지정하는 경우</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">com</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -449,10 +445,11 @@
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>  
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1"># 두 셀이 같은 칸이면 아무 것도 하지 않는다는 문제 조건</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span> <span class="ow">and</span> <span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span><span class="p">:</span>
@@ -464,6 +461,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cell2</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r2</span><span class="p">][</span><span class="n">c2</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 각 셀은 리스트이므로, [0]으로 지정해줘야 해당 값이 지정됩니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 따라서 각 값들은 &#34;rice&#34;, &#34;korean&#34;과 같은 실제 값이 됩니다.</span>
 </span></span><span class="line"><span class="cl">    <span class="n">v1</span> <span class="o">=</span> <span class="n">cell1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">v2</span> <span class="o">=</span> <span class="n">cell2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
@@ -511,7 +509,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">unmerge_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># (r, c)칸과 같은 id 값을 가진 칸 = 병합된 칸을 찾기 위한 id</span>
@@ -653,16 +651,12 @@
 </span><span class="lnt">115
 </span><span class="lnt">116
 </span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># table은 표, com은 commands를 공백 기준으로 split하여 만든 리스트입니다.</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># com = commands_리스트_원소.split(&#34; &#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># com = commands_리스트_원소.split(&#34; &#34;)[1:]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 따라서 com은 &#34;UPDATE&#34;와 같은 명령어 키워드를 제외한 명령 정보를 담은 값입니다.</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">update_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="c1"># 명령어의 첫 번째 코드는 UPDATE와 같은 명령 STRING</span>
-</span></span><span class="line"><span class="cl">  	<span class="c1"># 이 안에 들어온 이상 필요 없으므로 슬라이싱으로 빼줍니다.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">com</span> <span class="o">=</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1"># 특정 값을 해당 칸에 지정하는 경우</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">com</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -684,7 +678,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>  
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1"># 두 셀이 같은 칸이면 아무 것도 하지 않는다는 문제 조건</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span> <span class="ow">and</span> <span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span><span class="p">:</span>
@@ -696,12 +690,13 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cell2</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r2</span><span class="p">][</span><span class="n">c2</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 각 셀은 리스트이므로, [0]으로 지정해줘야 해당 값이 지정됩니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 따라서 각 값들은 &#34;rice&#34;, &#34;korean&#34;과 같은 실제 값이 됩니다.</span>
 </span></span><span class="line"><span class="cl">    <span class="n">v1</span> <span class="o">=</span> <span class="n">cell1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">v2</span> <span class="o">=</span> <span class="n">cell2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 위에서 이야기한 네 번째 경우의 수에만 value2를 value1으로 지정할 수 있습니다.</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># parent_cell은 값을 전달하는 셀, child_cell은 부모의 값을 부여받는 셀입니다.</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># 자식 칸의 주소값으로 대상이 될 자식들을 찾습니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 자식 칸의 아이디로 대상이 될 자식들을 찾읍시다.</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">v2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">v1</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">child_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">cell1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">parent_cell</span> <span class="o">=</span> <span class="n">cell2</span>
@@ -717,7 +712,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">unmerge_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># (r, c)칸과 같은 id 값을 가진 칸 = 병합된 칸을 찾기 위한 id</span>
@@ -740,17 +735,16 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 값이 있는 칸은 잘 출력해줍니다.</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 없으면 &#39;EMPTY&#39;를 출력합니다.</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s1">&#39;EMPTY&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># table[r][c][0]에 값이 있으면 해당 값을, 아니면 &#34;EMPTY&#34;를 반환합니다.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;EMPTY&#39;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 명령어에 따라 시행을 정해주는 함수</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">commit_commands</span><span class="p">(</span><span class="n">com</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">answer</span> <span class="o">=</span> <span class="p">[]):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">command</span> <span class="o">=</span> <span class="n">com</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 명령어에 따라 실행 명령 종류를 정해주는 함수</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">commit_commands</span><span class="p">(</span><span class="n">com_tokens_list</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">answer</span> <span class="o">=</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command</span> <span class="o">=</span> <span class="n">com_tokens_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">com</span> <span class="o">=</span> <span class="n">com_tokens_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&#34;UPDATE&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">update_cells</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">com</span><span class="p">)</span>
@@ -772,8 +766,8 @@
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">raw_com</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">      	<span class="c1"># 명령어는 하나의 스트링으로 이루어져 있고, 문장 내 구분자가 공백이기 때문에</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 각 명령어 토큰을 다음과 같이 분리합니다.</span>
-</span></span><span class="line"><span class="cl">        <span class="n">com</span> <span class="o">=</span> <span class="n">raw_com</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>        
-</span></span><span class="line"><span class="cl">        <span class="n">answer</span> <span class="o">=</span> <span class="n">commit_commands</span><span class="p">(</span><span class="n">com</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">com_tokens_list</span> <span class="o">=</span> <span class="n">raw_com</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">answer</span> <span class="o">=</span> <span class="n">commit_commands</span><span class="p">(</span><span class="n">com_tokens_list</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span>
 </span></span></code></pre></td></tr></table>
