@@ -4,7 +4,7 @@
         <link>https://caddyspoon.github.io/posts/</link>
         <description>All Posts | Social&#43;DEV.</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jan 2024 20:54:09 &#43;0900</lastBuildDate><atom:link href="https://caddyspoon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>토이프로젝트 &#34;바틀비.&#34; 회고록</title>
+    <title>토이프로젝트 [바틀비.] 회고록</title>
     <link>https://caddyspoon.github.io/posts/2024/01/0103_%EB%B0%94%ED%8B%80%EB%B9%84_%ED%9A%8C%EA%B3%A0%EB%A1%9D/</link>
     <pubDate>Wed, 03 Jan 2024 20:54:09 &#43;0900</pubDate><dc:creator>Caddyspoon</dc:creator><guid>https://caddyspoon.github.io/posts/2024/01/0103_%EB%B0%94%ED%8B%80%EB%B9%84_%ED%9A%8C%EA%B3%A0%EB%A1%9D/</guid>
     <description><![CDATA[토이프로젝트로 진행했던 &ldquo;바틀비.&ldquo;에 대한 회고록을 남겨볼까합니다. 혼자서 진행한 첫 번째 토이프로젝트였습니다. 리액트를 사용한 경험을 쌓고자 진행했던 프로젝트였습니다. 그만큼 가벼운 마음으로 시작했었는데, 시간나는대로 틈틈이 하다보니 생각보다 완성에는 시간이 걸렸습니다.
